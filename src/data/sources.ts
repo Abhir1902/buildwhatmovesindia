@@ -1,0 +1,60 @@
+import type { ComplianceSource } from "@/domain/types";
+
+export const sources: Record<string, ComplianceSource> = {
+  poshAct: {
+    id: "posh-act",
+    title: "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+    publisher: "Ministry of Women and Child Development",
+    url: "https://wcd.nic.in",
+    jurisdiction: "India",
+    lastVerified: "2026-08-29",
+  },
+  gstAct: {
+    id: "gst-act",
+    title: "Central Goods and Services Tax Act, 2017 — return filing framework",
+    publisher: "CBIC / GSTN",
+    url: "https://www.gst.gov.in",
+    jurisdiction: "India",
+    lastVerified: "2026-08-29",
+  },
+  shopsMh: {
+    id: "shops-mh",
+    title: "Maharashtra Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2017",
+    publisher: "Government of Maharashtra",
+    url: "https://mahakamgar.maharashtra.gov.in",
+    jurisdiction: "Maharashtra",
+    lastVerified: "2026-08-29",
+  },
+  epf: {
+    id: "epf",
+    title: "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+    publisher: "EPFO",
+    url: "https://www.epfindia.gov.in",
+    jurisdiction: "India",
+    lastVerified: "2026-08-29",
+  },
+  esi: {
+    id: "esi",
+    title: "Employees’ State Insurance Act, 1948",
+    publisher: "ESIC",
+    url: "https://www.esic.gov.in",
+    jurisdiction: "India",
+    lastVerified: "2026-08-29",
+  },
+  companies: {
+    id: "companies",
+    title: "Companies Act, 2013 — annual filings",
+    publisher: "Ministry of Corporate Affairs",
+    url: "https://www.mca.gov.in",
+    jurisdiction: "India",
+    lastVerified: "2026-08-29",
+  },
+  factories: {
+    id: "factories",
+    title: "Factories Act, 1948 — licensing and safety",
+    publisher: "Maharashtra Directorate of Industrial Safety and Health",
+    url: "https://mahadish.in",
+    jurisdiction: "Maharashtra",
+    lastVerified: "2026-08-29",
+  },
+};

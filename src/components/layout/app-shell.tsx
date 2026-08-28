@@ -16,6 +16,10 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const { t } = useI18n();
 
+  if (pathname === "/") {
+    return <>{children}</>;
+  }
+
   const item = (key: (typeof main)[number] | (typeof secondary)[number]) => {
     const href = `/${key}`;
     const active = pathname === href || pathname.startsWith(`${href}/`);

@@ -1,6 +1,8 @@
-export function SetuLogo({ compact = false }: { compact?: boolean }) {
+import { cn } from "@/lib/utils";
+
+export function SetuLogo({ compact = false, className }: { compact?: boolean; className?: string }) {
   return (
-    <span className="inline-flex items-center gap-2.5 text-neutral-950">
+    <span className={cn("inline-flex items-center gap-2.5 text-neutral-950", className)}>
       <svg
         width={compact ? 22 : 28}
         height={compact ? 22 : 28}

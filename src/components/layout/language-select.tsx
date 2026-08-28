@@ -8,13 +8,15 @@ import { cn } from "@/lib/utils";
 
 type LanguageSelectProps = {
   openUp?: boolean;
+  tone?: "light" | "dark";
+  className?: string;
 };
 
-export function LanguageSelect({ openUp = false }: LanguageSelectProps) {
+export function LanguageSelect({ openUp = false, tone = "light", className }: LanguageSelectProps) {
   const { locale, setLocale, t } = useI18n();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLSpanElement>(null);
   const menuRef = useRef<HTMLUListElement>(null);
   const [box, setBox] = useState<{ top: number; bottom: number; left: number; width: number } | null>(null);
   const current = locales.find((item) => item.code === locale);
@@ -62,7 +64,12 @@ export function LanguageSelect({ openUp = false }: LanguageSelectProps) {
           <ul
             ref={menuRef}
             role="listbox"
-            className="fixed z-[80] max-h-72 overflow-auto rounded-md border border-neutral-200 bg-white py-1 shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+            className={cn(
+              "fixed z-[80] max-h-72 overflow-auto rounded-md py-1",
+              tone === "dark"
+                ? "border border-white/20 bg-neutral-950 py-1"
+                : "border border-neutral-200 bg-white py-1 shadow-[0_8px_30px_rgba(0,0,0,0.08)]",
+            )}
             style={{
               left: box.left,
               width: Math.max(box.width, 220),
@@ -82,12 +89,15 @@ export function LanguageSelect({ openUp = false }: LanguageSelectProps) {
                     setOpen(false);
                   }}
                   className={cn(
-                    "flex w-full flex-col items-start px-3 py-2.5 text-left hover:bg-neutral-50",
-                    item.code === locale && "bg-neutral-100",
+                    "flex w-full flex-col items-start px-3 py-2.5 text-left",
+                    tone === "dark"
+                      ? "hover:bg-white/10"
+                      : "hover:bg-neutral-50",
+                    item.code === locale && (tone === "dark" ? "bg-white/15" : "bg-neutral-100"),
                   )}
                 >
-                  <span className="text-sm text-neutral-900">{item.native}</span>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-neutral-500">
+                  <span className={cn("text-sm", tone === "dark" ? "text-white" : "text-neutral-900")}>{item.native}</span>
+                  <span className={cn("font-mono text-[10px] uppercase tracking-wider", tone === "dark" ? "text-white/50" : "text-neutral-500")}>
                     {item.english}
                   </span>
                 </button>
@@ -99,21 +109,26 @@ export function LanguageSelect({ openUp = false }: LanguageSelectProps) {
       : null;
 
   return (
-    <div ref={rootRef} className="relative">
+    <span ref={rootRef} className={cn("relative inline-block w-full", className)}>
       <button
         type="button"
         aria-label={t.common.language}
         aria-expanded={open}
         aria-haspopup="listbox"
         onClick={() => setOpen((value) => !value)}
-        className="flex h-10 w-full items-center justify-between rounded-md border border-neutral-200 bg-white px-3 text-left text-xs text-neutral-800 transition-colors hover:border-neutral-400"
+        className={cn(
+          "flex h-10 w-full items-center justify-between border px-3 text-left text-xs",
+          tone === "dark"
+            ? "rounded-none border-white/40 bg-transparent text-white"
+            : "rounded-md border-neutral-200 bg-white text-neutral-800 hover:border-neutral-400",
+        )}
       >
         <span>
           {current?.native} · {current?.english}
         </span>
-        <span className="font-mono text-[10px] text-neutral-400">{open ? "–" : "+"}</span>
+        <span className={cn("font-mono text-[10px]", tone === "dark" ? "text-white/50" : "text-neutral-400")}>{open ? "–" : "+"}</span>
       </button>
       {menu}
-    </div>
+    </span>
   );
 }

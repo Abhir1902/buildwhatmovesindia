@@ -104,3 +104,57 @@ html:lang(mr) body {
   transform-origin: left;
   transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+html:has(.landing-root),
+html:has(.landing-root) body {
+  background-color: #050403;
+  scrollbar-width: none;
+}
+
+html:has(.landing-root)::-webkit-scrollbar,
+html:has(.landing-root) body::-webkit-scrollbar {
+  display: none;
+}
+
+html:has(.landing-root)::before {
+  display: none;
+}
+
+.landing-root {
+  font-family: var(--font-oswald), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+html:lang(hi) .landing-root,
+html:lang(mr) .landing-root {
+  font-family: var(--font-noto), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+.landing-hero-bg,
+.landing-v2,
+.landing-v3,
+.landing-v4,
+.landing-v5,
+.landing-v6 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.landing-hero-bg {
+  background-color: #070605;
+  background-image: url("/landing-bg.png");
+}
+
+.landing-v2 { background-color: #070605; background-image: url("/landing-2.png"); }
+.landing-v3 { background-color: #070605; background-image: url("/landing-3.png"); }
+.landing-v4 { background-color: #070605; background-image: url("/landing-4.png"); }
+.landing-v5 { background-color: #070605; background-image: url("/landing-5.png"); }
+.landing-v6 { background-color: #070605; background-image: url("/landing-6.png"); }
+
+.landing-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+}

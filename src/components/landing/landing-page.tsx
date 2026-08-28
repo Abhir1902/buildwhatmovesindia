@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { OpenAIMark, SetuLogo } from "@/components/brand/setu-logo";
 import { LanguageSelect } from "@/components/layout/language-select";
 import { useI18n } from "@/i18n/provider";
@@ -12,42 +12,60 @@ function clamp(n: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, n));
 }
 
-function bgWeight(progress: number, index: number) {
-  const x = progress * SCENES;
-  const d = Math.abs(x - (index + 0.5));
-  return clamp(1.15 - d);
+/** Adjacent scenes only; opacities sum to 1 so images never stack three-deep. */
+function bgOpacity(pos: number, index: number) {
+  const d = Math.abs(pos - index);
+  if (d >= 1) return 0;
+  return 1 - d;
 }
 
 export function LandingPage() {
   const { t } = useI18n();
-  const trackRef = useRef<HTMLElement>(null);
-  const [progress, setProgress] = useState(0);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [pos, setPos] = useState(0);
 
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let frame = 0;
-    function measure() {
-      const el = trackRef.current;
-      if (!el) return;
-      const total = el.offsetHeight - window.innerHeight;
-      const rect = el.getBoundingClientRect();
-      setProgress(clamp(-rect.top / Math.max(total, 1)));
-    }
-    function onScroll() {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(measure);
-    }
-    measure();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
+  const read = useCallback(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const h = el.clientHeight || 1;
+    setPos(el.scrollTop / h);
   }, []);
 
-  const active = Math.min(SCENES - 1, Math.max(0, Math.floor(progress * SCENES)));
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    let frame = 0;
+    function onScroll() {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(read);
+    }
+    el.addEventListener("scroll", onScroll, { passive: true });
+    read();
+    return () => {
+      cancelAnimationFrame(frame);
+      el.removeEventListener("scroll", onScroll);
+    };
+  }, [read]);
+
+  const scene = Math.min(SCENES - 1, Math.max(0, Math.round(pos)));
+  const textOpacity = clamp(1 - Math.abs(pos - scene) * 2.4);
+
+  function go(dir: number) {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const h = el.clientHeight;
+    const current = Math.round(el.scrollTop / h);
+    const next = Math.min(SCENES - 1, Math.max(0, current + dir));
+    const top = next * h;
+    el.style.scrollSnapType = "none";
+    el.scrollTo({ top, behavior: "smooth" });
+    window.setTimeout(() => {
+      el.scrollTop = top;
+      el.style.scrollSnapType = "";
+      read();
+    }, 450);
+  }
+
   const scenes = [
     { kicker: t.landing.kicker, title: t.landing.headline, body: t.landing.sub, side: "left" as const, href: undefined },
     { kicker: "02", title: t.landing.s1Title, body: t.landing.s1Body, side: "right" as const, href: undefined },
@@ -56,47 +74,74 @@ export function LandingPage() {
     { kicker: "05", title: t.landing.s4Title, body: t.landing.s4Body, side: "left" as const, href: undefined },
     { kicker: "06", title: t.landing.s5Title, body: t.landing.s5Body, side: "right" as const, href: "/overview" },
   ];
+  const current = scenes[scene];
 
   return (
-    <main className="landing-root text-[#f3e6c8]">
-      <header className="fixed top-0 z-20 w-full">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-10" aria-label="Landing">
+    <main className="landing-root relative h-dvh text-[#f3e6c8]">
+      {BGS.map((cls, i) => (
+        <span
+          key={cls}
+          className={`${cls} pointer-events-none fixed inset-0`}
+          style={{ opacity: bgOpacity(pos, i), zIndex: i }}
+          aria-hidden
+        />
+      ))}
+      <span className="landing-grain pointer-events-none fixed inset-0 z-10" aria-hidden />
+      <span className="pointer-events-none fixed inset-0 z-10 bg-gradient-to-t from-black/75 via-black/25 to-black/30" aria-hidden />
+
+      <header className="pointer-events-none fixed top-0 z-20 w-full">
+        <nav className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-10" aria-label="Landing">
           <SetuLogo className="text-[#f3e6c8]" />
           <LanguageSelect tone="dark" className="w-44 sm:w-52" />
         </nav>
       </header>
 
-      <article ref={trackRef} className="relative h-[540vh]">
-        <div className="sticky top-0 h-dvh overflow-hidden">
-          {BGS.map((cls, i) => (
-            <span key={cls} className={`${cls} absolute inset-0`} style={{ opacity: bgWeight(progress, i) }} aria-hidden />
-          ))}
-          <span className="landing-grain pointer-events-none absolute inset-0" aria-hidden />
-          <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/30" aria-hidden />
+      <div
+        ref={scrollerRef}
+        className="landing-scroller relative z-[1] h-dvh"
+        tabIndex={0}
+        aria-label="SETU tour"
+      >
+        {scenes.map((item, i) => (
+          <section key={item.title} className="landing-snap h-dvh shrink-0" aria-hidden={i !== scene} />
+        ))}
+      </div>
 
-          <div className="relative z-[1] mx-auto h-full max-w-6xl px-5 sm:px-10">
-            {scenes.map((scene, i) => (
-              <SceneCopy
-                key={scene.title}
-                show={i === active}
-                side={scene.side}
-                kicker={scene.kicker}
-                title={scene.title}
-                body={scene.body}
-                as={i === 0 ? "h1" : "h2"}
-                href={scene.href}
-              />
-            ))}
-          </div>
-        </div>
-      </article>
+      <div className="pointer-events-none fixed inset-0 z-[15]">
+        <SceneCopy
+          key={scene}
+          opacity={textOpacity}
+          side={current.side}
+          kicker={current.kicker}
+          title={current.title}
+          body={current.body}
+          as={scene === 0 ? "h1" : "h2"}
+          href={current.href}
+        />
+      </div>
 
-      <footer className="relative px-5 py-6 text-[11px] tracking-wide text-[#f3e6c8]/40 sm:px-10">
+      {scene < SCENES - 1 ? (
+        <button
+          type="button"
+          className="fixed bottom-16 left-1/2 z-30 flex h-12 w-12 -translate-x-1/2 items-center justify-center border border-[#f3e6c8]/40 text-[#f3e6c8] hover:border-[#f3e6c8]"
+          aria-label={t.landing.next}
+          onClick={() => go(1)}
+        >
+          <span aria-hidden className="text-lg leading-none">
+            ↓
+          </span>
+        </button>
+      ) : null}
+
+      <footer className="pointer-events-none fixed inset-x-0 bottom-0 z-20 px-5 py-5 text-[11px] tracking-wide text-[#f3e6c8]/40 sm:px-10">
         <p className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
           <span className="inline-flex items-center gap-2">
             {t.footer.built}
             <OpenAIMark className="h-4 w-4 shrink-0 brightness-0 invert opacity-60" />
             OpenAI
+          </span>
+          <span>
+            {scene + 1} / {SCENES}
           </span>
           <span>#BuildWhatMovesIndia</span>
         </p>
@@ -106,7 +151,7 @@ export function LandingPage() {
 }
 
 function SceneCopy({
-  show,
+  opacity,
   side,
   kicker,
   title,
@@ -114,7 +159,7 @@ function SceneCopy({
   as,
   href,
 }: {
-  show: boolean;
+  opacity: number;
   side: "left" | "right";
   kicker: string;
   title: string;
@@ -127,14 +172,13 @@ function SceneCopy({
     <header
       className={
         side === "right"
-          ? "absolute inset-x-5 bottom-20 max-w-md text-right sm:inset-x-10 sm:bottom-28 sm:left-auto"
-          : "absolute inset-x-5 bottom-20 max-w-lg sm:inset-x-10 sm:bottom-28"
+          ? "absolute inset-x-5 bottom-28 ml-auto max-w-md text-right sm:inset-x-10"
+          : "absolute inset-x-5 bottom-28 max-w-lg sm:inset-x-10"
       }
       style={{
-        opacity: show ? 1 : 0,
-        transform: show ? "translate3d(0,0,0)" : "translate3d(0,18px,0)",
-        transition: "opacity 420ms ease, transform 420ms ease",
-        pointerEvents: show ? "auto" : "none",
+        opacity,
+        transform: `translate3d(0, ${(1 - opacity) * 16}px, 0)`,
+        pointerEvents: opacity > 0.4 ? "auto" : "none",
       }}
     >
       <p className="text-[11px] tracking-[0.28em] text-[#f3e6c8]/75 uppercase">{kicker}</p>

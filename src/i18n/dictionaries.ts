@@ -297,6 +297,7 @@ export const en = {
     s4Body: "See what is on track and what is due. Professionals appear only when they fit a task this business may need.",
     s5Title: "Built for Indian desks",
     s5Body: "The full interface in Indian languages. Walk Aarav Engineering, Pune — a public demo, not a live government filing.",
+    next: "Next",
     aboutTitle: "What SETU is",
     aboutBody:
       "Most businesses still bounce between GSTN, EPFO, MCA21, Shop Act portals, PDFs, and a CA’s WhatsApp thread. SETU holds the map, the filing desk, and the vault in one place — so the work stays inside the product, not in a new browser tab.",
@@ -616,6 +617,7 @@ const hi: Messages = {
     s4Body: "क्या ट्रैक पर है, क्या देय है। विशेषज्ञ तभी दिखते हैं जब वे इस व्यवसाय के काम से मेल खाते हैं।",
     s5Title: "भारतीय डेस्क के लिए",
     s5Body: "पूरा इंटरफ़ेस भारतीय भाषाओं में। पुणे की आरव इंजीनियरिंग देखें — सार्वजनिक डेमो, लाइव सरकारी फाइलिंग नहीं।",
+    next: "आगे",
     aboutTitle: "सेतु क्या है",
     aboutBody:
       "अधिकतर व्यवसाय अभी भी GSTN, EPFO, MCA21, दुकान अधिनियम पोर्टल, PDF और CA के WhatsApp के बीच भागते हैं। सेतु नक्शा, फाइलिंग डेस्क और वॉल्ट एक जगह रखता है — काम उत्पाद के अंदर रहता है, नई टैब में नहीं।",
@@ -933,6 +935,7 @@ const mr: Messages = {
     s4Body: "काय ट्रॅकवर आहे, काय देय आहे. तज्ज्ञ तेव्हाच दिसतात जेव्हा ते या व्यवसायाच्या कामाशी जुळतात.",
     s5Title: "भारतीय डेस्कसाठी",
     s5Body: "संपूर्ण इंटरफेस भारतीय भाषांमध्ये. पुण्यातील आरव इंजिनिअरिंग पाहा — सार्वजनिक डेमो, लाइव्ह सरकारी फाइलिंग नाही.",
+    next: "पुढे",
     aboutTitle: "सेतु म्हणजे काय",
     aboutBody:
       "बहुतेक व्यवसाय अजून GSTN, EPFO, MCA21, दुकान कायदा पोर्टल, PDF आणि CA च्या WhatsApp मध्ये उड्या मारतात. सेतु नकाशा, फाइलिंग डेस्क आणि व्हॉल्ट एका ठिकाणी ठेवतो — काम उत्पादनात राहते, नव्या टॅबमध्ये नाही.",

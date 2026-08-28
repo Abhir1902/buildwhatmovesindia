@@ -109,6 +109,8 @@ html:has(.landing-root),
 html:has(.landing-root) body {
   background-color: #050403;
   scrollbar-width: none;
+  overflow: hidden;
+  height: 100%;
 }
 
 html:has(.landing-root)::-webkit-scrollbar,
@@ -123,6 +125,23 @@ html:has(.landing-root)::before {
 .landing-root {
   font-family: var(--font-oswald), "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 0.01em;
+}
+
+.landing-scroller {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.landing-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.landing-snap {
+  height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 html:lang(hi) .landing-root,

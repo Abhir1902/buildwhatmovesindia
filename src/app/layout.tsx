@@ -1,4 +1,18 @@
-import { Geist, Geist_Mono, Noto_Sans, Oswald } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Noto_Sans,
+  Noto_Sans_Arabic,
+  Noto_Sans_Bengali,
+  Noto_Sans_Gujarati,
+  Noto_Sans_Gurmukhi,
+  Noto_Sans_Kannada,
+  Noto_Sans_Malayalam,
+  Noto_Sans_Oriya,
+  Noto_Sans_Tamil,
+  Noto_Sans_Telugu,
+  Oswald,
+} from "next/font/google";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { LanguageProvider } from "@/i18n/provider";
@@ -22,6 +36,69 @@ const noto = Noto_Sans({
   variable: "--font-noto",
   subsets: ["latin", "devanagari"],
   weight: ["400", "500", "600"],
+});
+
+const notoBengali = Noto_Sans_Bengali({
+  variable: "--font-noto-bengali",
+  subsets: ["bengali"],
+  weight: ["400", "500", "600"],
+  preload: false,
+});
+
+const notoTamil = Noto_Sans_Tamil({
+  variable: "--font-noto-tamil",
+  subsets: ["tamil"],
+  weight: ["400", "500", "600"],
+  preload: false,
+});
+
+const notoTelugu = Noto_Sans_Telugu({
+  variable: "--font-noto-telugu",
+  subsets: ["telugu"],
+  weight: ["400", "500", "600"],
+  preload: false,
+});
+
+const notoGujarati = Noto_Sans_Gujarati({
+  variable: "--font-noto-gujarati",
+  subsets: ["gujarati"],
+  weight: ["400", "500", "600"],
+  preload: false,
+});
+
+const notoKannada = Noto_Sans_Kannada({
+  variable: "--font-noto-kannada",
+  subsets: ["kannada"],
+  weight: ["400", "500", "600"],
+  preload: false,
+});
+
+const notoMalayalam = Noto_Sans_Malayalam({
+  variable: "--font-noto-malayalam",
+  subsets: ["malayalam"],
+  weight: ["400", "500", "600"],
+  preload: false,
+});
+
+const notoGurmukhi = Noto_Sans_Gurmukhi({
+  variable: "--font-noto-gurmukhi",
+  subsets: ["gurmukhi"],
+  weight: ["400", "500", "600"],
+  preload: false,
+});
+
+const notoOriya = Noto_Sans_Oriya({
+  variable: "--font-noto-oriya",
+  subsets: ["oriya"],
+  weight: ["400", "500", "600"],
+  preload: false,
+});
+
+const notoArabic = Noto_Sans_Arabic({
+  variable: "--font-noto-arabic",
+  subsets: ["arabic"],
+  weight: ["400", "500", "600"],
+  preload: false,
 });
 
 const oswald = Oswald({
@@ -53,7 +130,12 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const dir = initialLocale === "ur" ? "rtl" : "ltr";
 
   return (
-    <html lang={initialLocale} dir={dir} suppressHydrationWarning className={`${sans.variable} ${mono.variable} ${noto.variable} ${oswald.variable} h-full antialiased`}>
+    <html
+      lang={initialLocale}
+      dir={dir}
+      suppressHydrationWarning
+      className={`${sans.variable} ${mono.variable} ${noto.variable} ${notoBengali.variable} ${notoTamil.variable} ${notoTelugu.variable} ${notoGujarati.variable} ${notoKannada.variable} ${notoMalayalam.variable} ${notoGurmukhi.variable} ${notoOriya.variable} ${notoArabic.variable} ${oswald.variable} h-full antialiased`}
+    >
       <body className="min-h-full text-[var(--foreground)]">
         <LanguageProvider initialLocale={initialLocale}>
           <DemoProvider>

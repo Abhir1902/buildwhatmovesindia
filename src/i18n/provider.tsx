@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { dictionaries, locales, type LocaleCode, type Messages } from "@/i18n/dictionaries";
+import { mergeMessages } from "@/i18n/merge";
 
 type I18nContextValue = {
   locale: LocaleCode;
@@ -60,7 +61,7 @@ export function LanguageProvider({
     return {
       locale,
       setLocale,
-      t: dictionaries[locale] ?? dictionaries.en,
+      t: mergeMessages(dictionaries.en, dictionaries[locale] ?? dictionaries.en),
       dir: (meta?.dir ?? "ltr") as "ltr" | "rtl",
     };
   }, [locale, setLocale]);

@@ -48,6 +48,59 @@ html:lang(mr) body {
   font-family: var(--font-noto), var(--font-geist-sans), ui-sans-serif, system-ui;
 }
 
+html:lang(bn) body,
+html:lang(as) body {
+  font-family: var(--font-noto-bengali), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+html:lang(te) body {
+  font-family: var(--font-noto-telugu), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+html:lang(ta) body {
+  font-family: var(--font-noto-tamil), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+html:lang(gu) body {
+  font-family: var(--font-noto-gujarati), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+html:lang(kn) body {
+  font-family: var(--font-noto-kannada), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+html:lang(ml) body {
+  font-family: var(--font-noto-malayalam), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+html:lang(pa) body {
+  font-family: var(--font-noto-gurmukhi), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+html:lang(or) body {
+  font-family: var(--font-noto-oriya), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+html:lang(ur) body {
+  font-family: var(--font-noto-arabic), var(--font-geist-sans), ui-sans-serif, system-ui;
+}
+
+.lang-native {
+  font-family:
+    var(--font-noto),
+    var(--font-noto-bengali),
+    var(--font-noto-tamil),
+    var(--font-noto-telugu),
+    var(--font-noto-gujarati),
+    var(--font-noto-kannada),
+    var(--font-noto-malayalam),
+    var(--font-noto-gurmukhi),
+    var(--font-noto-oriya),
+    var(--font-noto-arabic),
+    ui-sans-serif,
+    system-ui;
+}
+
 .font-mono,
 [data-mono] {
   font-family: var(--font-mono);
@@ -147,6 +200,43 @@ html:has(.landing-root)::before {
 html:lang(hi) .landing-root,
 html:lang(mr) .landing-root {
   font-family: var(--font-noto), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(bn) .landing-root,
+html:lang(as) .landing-root {
+  font-family: var(--font-noto-bengali), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(te) .landing-root {
+  font-family: var(--font-noto-telugu), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(ta) .landing-root {
+  font-family: var(--font-noto-tamil), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(gu) .landing-root {
+  font-family: var(--font-noto-gujarati), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(kn) .landing-root {
+  font-family: var(--font-noto-kannada), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(ml) .landing-root {
+  font-family: var(--font-noto-malayalam), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(pa) .landing-root {
+  font-family: var(--font-noto-gurmukhi), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(or) .landing-root {
+  font-family: var(--font-noto-oriya), var(--font-oswald), Helvetica, Arial, sans-serif;
+}
+
+html:lang(ur) .landing-root {
+  font-family: var(--font-noto-arabic), var(--font-oswald), Helvetica, Arial, sans-serif;
 }
 
 .landing-hero-bg,

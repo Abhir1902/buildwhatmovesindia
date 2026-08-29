@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { OpenAIMark, SetuLogo } from "@/components/brand/setu-logo";
 import { LanguageSelect } from "@/components/layout/language-select";
 import { useI18n } from "@/i18n/provider";
@@ -20,7 +21,7 @@ function bgOpacity(pos: number, index: number) {
 }
 
 export function LandingPage() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(0);
 
@@ -67,12 +68,12 @@ export function LandingPage() {
   }
 
   const scenes = [
-    { kicker: t.landing.kicker, title: t.landing.headline, body: t.landing.sub, side: "left" as const, href: undefined },
-    { kicker: "02", title: t.landing.s1Title, body: t.landing.s1Body, side: "right" as const, href: undefined },
-    { kicker: "03", title: t.landing.s2Title, body: t.landing.s2Body, side: "left" as const, href: undefined },
-    { kicker: "04", title: t.landing.s3Title, body: t.landing.s3Body, side: "right" as const, href: undefined },
-    { kicker: "05", title: t.landing.s4Title, body: t.landing.s4Body, side: "left" as const, href: undefined },
-    { kicker: "06", title: t.landing.s5Title, body: t.landing.s5Body, side: "right" as const, href: "/overview" },
+    { kicker: t.landing.kicker, title: t.landing.headline, body: t.landing.sub, end: false, href: undefined },
+    { kicker: "02", title: t.landing.s1Title, body: t.landing.s1Body, end: true, href: undefined },
+    { kicker: "03", title: t.landing.s2Title, body: t.landing.s2Body, end: false, href: undefined },
+    { kicker: "04", title: t.landing.s3Title, body: t.landing.s3Body, end: true, href: undefined },
+    { kicker: "05", title: t.landing.s4Title, body: t.landing.s4Body, end: false, href: undefined },
+    { kicker: "06", title: t.landing.s5Title, body: t.landing.s5Body, end: true, href: "/overview" },
   ];
   const current = scenes[scene];
 
@@ -92,7 +93,15 @@ export function LandingPage() {
       <header className="pointer-events-none fixed top-0 z-20 w-full">
         <nav className="pointer-events-auto mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-5 sm:px-10" aria-label="Landing">
           <SetuLogo className="text-[#f3e6c8]" />
-          <LanguageSelect tone="dark" className="w-44 sm:w-52" />
+          <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+            <LanguageSelect tone="dark" className="w-36 sm:w-48" />
+            <Link
+              href="/overview"
+              className="flex h-10 shrink-0 items-center border border-[#f3e6c8]/40 px-3 text-xs whitespace-nowrap text-[#f3e6c8] hover:border-[#f3e6c8]"
+            >
+              {t.landing.cta}
+            </Link>
+          </div>
         </nav>
       </header>
 
@@ -111,7 +120,8 @@ export function LandingPage() {
         <SceneCopy
           key={scene}
           opacity={textOpacity}
-          side={current.side}
+          end={current.end}
+          latinKicker={locale === "en"}
           kicker={current.kicker}
           title={current.title}
           body={current.body}
@@ -140,7 +150,7 @@ export function LandingPage() {
             <OpenAIMark className="h-4 w-4 shrink-0 brightness-0 invert opacity-60" />
             OpenAI
           </span>
-          <span>
+          <span dir="ltr">
             {scene + 1} / {SCENES}
           </span>
           <span>#BuildWhatMovesIndia</span>
@@ -152,7 +162,8 @@ export function LandingPage() {
 
 function SceneCopy({
   opacity,
-  side,
+  end,
+  latinKicker,
   kicker,
   title,
   body,
@@ -160,7 +171,8 @@ function SceneCopy({
   href,
 }: {
   opacity: number;
-  side: "left" | "right";
+  end: boolean;
+  latinKicker: boolean;
   kicker: string;
   title: string;
   body: string;
@@ -171,9 +183,9 @@ function SceneCopy({
   return (
     <header
       className={
-        side === "right"
-          ? "absolute inset-x-5 bottom-28 ml-auto max-w-md text-right sm:inset-x-10"
-          : "absolute inset-x-5 bottom-28 max-w-lg sm:inset-x-10"
+        end
+          ? "absolute inset-x-5 bottom-28 ms-auto max-w-md text-end sm:inset-x-10"
+          : "absolute inset-x-5 bottom-28 max-w-lg text-start sm:inset-x-10"
       }
       style={{
         opacity,
@@ -181,7 +193,15 @@ function SceneCopy({
         pointerEvents: opacity > 0.4 ? "auto" : "none",
       }}
     >
-      <p className="text-[11px] tracking-[0.28em] text-[#f3e6c8]/75 uppercase">{kicker}</p>
+      <p
+        className={
+          latinKicker
+            ? "text-[11px] tracking-[0.28em] text-[#f3e6c8]/75 uppercase"
+            : "text-[11px] tracking-wide text-[#f3e6c8]/75"
+        }
+      >
+        {kicker}
+      </p>
       <Heading className="mt-5 text-4xl leading-[0.95] font-medium tracking-tight text-balance sm:text-5xl lg:text-6xl">
         {title}
       </Heading>

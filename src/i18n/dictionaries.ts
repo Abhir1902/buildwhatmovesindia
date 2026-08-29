@@ -1,4 +1,5 @@
 import { journeyUiEn, journeyUiHi, journeyUiMr, stepsEn, stepsHi, stepsMr } from "@/i18n/journey-copy";
+import { landingPacks } from "@/i18n/landing-packs";
 
 export const locales = [
   { code: "en", native: "English", english: "English", dir: "ltr" },
@@ -338,6 +339,10 @@ export const en = {
 };
 
 export type Messages = typeof en;
+
+function overlayLanding(code: keyof typeof landingPacks): Messages["landing"] {
+  return { ...en.landing, ...landingPacks[code] };
+}
 
 const hi: Messages = {
   nav: {
@@ -1043,6 +1048,7 @@ function bn(): Messages {
       chipMissing: "কী বাদ পড়েছে জানি না",
     }),
     settings: { language: "ভাষা", languageHelp: "ভাষা বেছে নিন। পুরো ইন্টারফেস তৎক্ষণাৎ বদলাবে।" },
+    landing: overlayLanding("bn"),
     footer: { built: "নির্মিত", rights: "© ২০২৬ সেতু। সর্বস্বত্ব সংরক্ষিত।" },
   };
 }
@@ -1091,6 +1097,7 @@ function te(): Messages {
       chipMissing: "ఏమి మిస్ అవుతుందో తెలియదు",
     }),
     settings: { language: "భాష", languageHelp: "భాషను ఎంచుకోండి. మొత్తం ఇంటర్‌ఫేస్ వెంటనే మారుతుంది." },
+    landing: overlayLanding("te"),
     footer: { built: "నిర్మాణం", rights: "© 2026 సేతు. అన్ని హక్కులు ప్రత్యేకించబడ్డాయి." },
   };
 }
@@ -1134,6 +1141,7 @@ function ta(): Messages {
       chipMissing: "என்ன தவறவிட்டேன் எனத் தெரியவில்லை",
     }),
     settings: { language: "மொழி", languageHelp: "மொழியைத் தேர்ந்தெடுக்கவும். முழு இடைமுகமும் உடனே மாறும்." },
+    landing: overlayLanding("ta"),
     footer: { built: "உருவாக்கம்", rights: "© 2026 சேது. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை." },
   };
 }
@@ -1177,6 +1185,7 @@ function gu(): Messages {
       chipMissing: "શું છૂટ્યું છે તે ખબર નથી",
     }),
     settings: { language: "ભાષા", languageHelp: "ભાષા પસંદ કરો. આખું ઈન્ટરફેસ તરત બદલાશે." },
+    landing: overlayLanding("gu"),
     footer: { built: "નિર્મિત", rights: "© 2026 સેતુ. સર્વાધિકાર સુરક્ષિત." },
   };
 }
@@ -1220,6 +1229,7 @@ function kn(): Messages {
       chipMissing: "ಏನು ತಪ್ಪಿದೆ ಗೊತ್ತಿಲ್ಲ",
     }),
     settings: { language: "ಭಾಷೆ", languageHelp: "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ. ಸಂಪೂರ್ಣ ಇಂಟರ್ಫೇಸ್ ತಕ್ಷಣ ಬದಲಾಗುತ್ತದೆ." },
+    landing: overlayLanding("kn"),
     footer: { built: "ನಿರ್ಮಿತ", rights: "© 2026 ಸೇತು. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." },
   };
 }
@@ -1263,6 +1273,7 @@ function ml(): Messages {
       chipMissing: "എന്താണ് വിട്ടുപോയതെന്ന് അറിയില്ല",
     }),
     settings: { language: "ഭാഷ", languageHelp: "ഭാഷ തിരഞ്ഞെടുക്കുക. മുഴുവൻ ഇന്റർഫേസും ഉടൻ മാറും." },
+    landing: overlayLanding("ml"),
     footer: { built: "നിർമ്മിതം", rights: "© 2026 സേതു. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം." },
   };
 }
@@ -1306,6 +1317,7 @@ function pa(): Messages {
       chipMissing: "ਪਤਾ ਨਹੀਂ ਕੀ ਛੁੱਟਿਆ ਹੈ",
     }),
     settings: { language: "ਭਾਸ਼ਾ", languageHelp: "ਭਾਸ਼ਾ ਚੁਣੋ। ਪੂਰਾ ਇੰਟਰਫੇਸ ਤੁਰੰਤ ਬਦਲੇਗਾ." },
+    landing: overlayLanding("pa"),
     footer: { built: "ਬਣਾਇਆ", rights: "© 2026 ਸੇਤੂ. ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ." },
   };
 }
@@ -1349,6 +1361,7 @@ function or(): Messages {
       chipMissing: "କଣ ଛୁଟିଲା ଜଣା ନାହିଁ",
     }),
     settings: { language: "ଭାଷା", languageHelp: "ଭାଷା ବାଛନ୍ତୁ। ସମ୍ପୂର୍ଣ୍ଣ ଇଣ୍ଟରଫେସ୍ ତୁରନ୍ତ ବଦଳିବ।" },
+    landing: overlayLanding("or"),
     footer: { built: "ନିର୍ମିତ", rights: "© 2026 ସେତୁ। ସମସ୍ତ ଅଧିକାର ସଂରକ୍ଷିତ।" },
   };
 }
@@ -1392,6 +1405,7 @@ function asPack(): Messages {
       chipMissing: "কি বাদ পৰিল নাজানো",
     }),
     settings: { language: "ভাষা", languageHelp: "ভাষা বাছনি কৰক। সমগ্ৰ ইণ্টাৰফেচ লগে লগে সলনি হ'ব।" },
+    landing: overlayLanding("as"),
     footer: { built: "নিৰ্মিত", rights: "© 2026 সেতু। সকলো অধিকাৰ সংৰক্ষিত।" },
   };
 }
@@ -1435,6 +1449,7 @@ function ur(): Messages {
       chipMissing: "پتہ نہیں کیا رہ گیا ہے",
     }),
     settings: { language: "زبان", languageHelp: "زبان منتخب کریں۔ پورا انٹرفیس فوراً بدل جائے گا۔" },
+    landing: overlayLanding("ur"),
     footer: { built: "تیار کردہ", rights: "© 2026 سیٹو۔ جملہ حقوق محفوظ ہیں۔" },
   };
 }

@@ -3,28 +3,36 @@
 import { Suspense, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { PortalSession } from "@/components/filing/portal-session";
-import { portals, type PortalId } from "@/data/portals";
-import { useI18n } from "@/i18n/provider";
+import { type PortalId } from "@/data/portals";
+import { Term } from "@/components/suite/plain-language";
+import { AppHeader } from "@/components/suite/app-header";
+import { useDemo } from "@/state/demo-provider";
 
 function FileDesks() {
-  const { t } = useI18n();
+  const { portals } = useDemo();
   const params = useSearchParams();
   const focus = params.get("p") as PortalId | null;
   const ordered = useMemo(() => {
     if (!focus) return portals;
     const first = portals.find((item) => item.id === focus);
     return first ? [first, ...portals.filter((item) => item.id !== focus)] : portals;
-  }, [focus]);
+  }, [focus, portals]);
 
   return (
     <div className="mx-auto max-w-3xl space-y-10">
       <header>
-        <h1 className="text-4xl font-medium tracking-tight">{t.file.title}</h1>
-        <p className="mt-3 max-w-xl text-neutral-600">{t.file.subtitle}</p>
+        <AppHeader
+          appId="filing"
+          extra={
+            <p className="text-sm text-neutral-500">
+              Mock OTP is <span className="font-mono">123456</span>. Acknowledgements such as an <Term id="arn">ARN</Term> stay in Vault.
+            </p>
+          }
+        />
       </header>
       <div className="space-y-8">
         {ordered.map((portal) => (
-          <PortalSession key={portal.id} portalId={portal.id} />
+          <PortalSession key={portal.id} portalId={portal.id as PortalId} />
         ))}
       </div>
     </div>

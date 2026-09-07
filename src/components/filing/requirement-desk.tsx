@@ -3,16 +3,17 @@
 import { PortalSession } from "@/components/filing/portal-session";
 import { ProfessionalCard } from "@/components/professionals/professional-card";
 import { SourcePanel, ConfidenceIndicator } from "@/components/compliance/source-panel";
+import { ObligationJourney } from "@/components/compliance/obligation-journey";
 import { ComplianceAssistant } from "@/services/compliance-assistant";
-import { portalById, type PortalId } from "@/data/portals";
-import { requirements } from "@/data/requirements";
-import { businessProfile } from "@/data/business";
+import { type PortalId } from "@/data/portals";
 import { requirementCopy } from "@/i18n/labels";
 import { useI18n } from "@/i18n/provider";
+import { useDemo } from "@/state/demo-provider";
 
 export function RequirementDesk({ id }: { id: PortalId }) {
   const { t } = useI18n();
-  const portal = portalById(id);
+  const { portals, requirements, business: businessProfile } = useDemo();
+  const portal = portals.find((item) => item.id === id);
   const item = requirements.find((r) => r.id === id);
   if (!portal || !item) return null;
   const copy = requirementCopy(t, id);
@@ -31,6 +32,8 @@ export function RequirementDesk({ id }: { id: PortalId }) {
       <div className="mt-10">
         <PortalSession portalId={id} />
       </div>
+
+      <ObligationJourney item={item} />
 
       {explanation && (
         <div className="mt-10">

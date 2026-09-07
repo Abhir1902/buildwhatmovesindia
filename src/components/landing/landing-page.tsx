@@ -5,6 +5,8 @@ import Link from "next/link";
 import { OpenAIMark, SetuLogo } from "@/components/brand/setu-logo";
 import { LanguageSelect } from "@/components/layout/language-select";
 import { useI18n } from "@/i18n/provider";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
 
 const SCENES = 6;
 const BGS = ["landing-hero-bg", "landing-v2", "landing-v3", "landing-v4", "landing-v5", "landing-v6"] as const;
@@ -73,7 +75,7 @@ export function LandingPage() {
     { kicker: "03", title: t.landing.s2Title, body: t.landing.s2Body, end: false, href: undefined },
     { kicker: "04", title: t.landing.s3Title, body: t.landing.s3Body, end: true, href: undefined },
     { kicker: "05", title: t.landing.s4Title, body: t.landing.s4Body, end: false, href: undefined },
-    { kicker: "06", title: t.landing.s5Title, body: t.landing.s5Body, end: true, href: "/overview" },
+    { kicker: "06", title: t.landing.s5Title, body: t.landing.s5Body, end: true, href: "/login" },
   ];
   const current = scenes[scene];
 
@@ -96,7 +98,7 @@ export function LandingPage() {
           <div className="flex min-w-0 items-center gap-2 sm:gap-3">
             <LanguageSelect tone="dark" className="w-36 sm:w-48" />
             <Link
-              href="/overview"
+              href="/login"
               className="flex h-10 shrink-0 items-center border border-[#f3e6c8]/40 px-3 text-xs whitespace-nowrap text-[#f3e6c8] hover:border-[#f3e6c8]"
             >
               {t.landing.cta}
@@ -133,13 +135,11 @@ export function LandingPage() {
       {scene < SCENES - 1 ? (
         <button
           type="button"
-          className="fixed bottom-16 left-1/2 z-30 flex h-12 w-12 -translate-x-1/2 items-center justify-center border border-[#f3e6c8]/40 text-[#f3e6c8] hover:border-[#f3e6c8]"
+          className="landing-scroll-arrow fixed bottom-16 left-1/2 z-30 -translate-x-1/2 text-[#f3e6c8] drop-shadow-[0_6px_12px_rgba(0,0,0,0.45)]"
           aria-label={t.landing.next}
           onClick={() => go(1)}
         >
-          <span aria-hidden className="text-lg leading-none">
-            ↓
-          </span>
+          <HugeiconsIcon icon={ArrowDown01Icon} size={36} color="currentColor" />
         </button>
       ) : null}
 

@@ -4,16 +4,19 @@ import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { DocumentViewer } from "@/components/documents/document-viewer";
-import { makeAcknowledgement, portalById, type PortalId } from "@/data/portals";
+import { makeAcknowledgement, type PortalId } from "@/data/portals";
 import { useDemo } from "@/state/demo-provider";
+import { useAuth } from "@/state/auth-provider";
 import { useI18n } from "@/i18n/provider";
 
 type Phase = "idle" | "otp" | "review" | "sending" | "done";
 
 export function PortalSession({ portalId }: { portalId: PortalId }) {
   const { t } = useI18n();
-  const portal = portalById(portalId);
-  const { filings, documents, addFiling } = useDemo();
+  const { filings, documents, addFiling, portals } = useDemo();
+  const portal = portals.find((item) => item.id === portalId);
+  const { can } = useAuth();
+  const canSubmit = can("file.submit");
   const existing = filings.find((item) => item.portalId === portalId);
   const [phase, setPhase] = useState<Phase>(existing ? "done" : "idle");
   const [otp, setOtp] = useState("");
@@ -52,8 +55,21 @@ export function PortalSession({ portalId }: { portalId: PortalId }) {
     }, 900);
   }
 
+  const phases: Phase[] = ["idle", "otp", "review", "sending", "done"];
+
   return (
-    <section className="rounded-lg border border-neutral-200 bg-white p-5 sm:p-6">
+    <section className="overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-[var(--elev-2)]">
+      <div className="flex flex-wrap gap-1 border-b border-neutral-200 bg-neutral-50 px-4 py-2 text-[11px]">
+        {phases.map((item) => (
+          <span
+            key={item}
+            className={item === phase ? "rounded-md bg-neutral-900 px-2 py-1 text-white" : "px-2 py-1 text-neutral-500"}
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+      <div className="p-5 sm:p-6">
       <p className="font-mono text-[11px] uppercase tracking-wider text-neutral-500">{t.file.desk}</p>
       <h2 className="mt-1 text-xl font-medium tracking-tight">{portalName}</h2>
       <p className="mt-2 text-sm text-neutral-600">{t.file.insideSetu.replace("{portal}", portalName)}</p>
@@ -99,7 +115,10 @@ export function PortalSession({ portalId }: { portalId: PortalId }) {
               </div>
             ))}
           </dl>
-          <Button onClick={submit}>{t.file.submit.replace("{portal}", portalName)}</Button>
+          <Button onClick={submit} disabled={!canSubmit}>
+            {t.file.submit.replace("{portal}", portalName)}
+          </Button>
+          {!canSubmit ? <p className="text-xs text-neutral-500">{t.suite.expertBlocked}</p> : null}
         </div>
       )}
 
@@ -139,6 +158,7 @@ export function PortalSession({ portalId }: { portalId: PortalId }) {
         }
         onClose={() => setViewAck(false)}
       />
+      </div>
     </section>
   );
 }

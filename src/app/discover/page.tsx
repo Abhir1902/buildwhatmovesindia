@@ -8,6 +8,7 @@ import { SourcePanel } from "@/components/compliance/source-panel";
 import type { DiscoveryAnswers } from "@/domain/types";
 import { FileNow } from "@/components/filing/file-now";
 import { useI18n } from "@/i18n/provider";
+import { AppHeader } from "@/components/suite/app-header";
 
 export default function DiscoverPage() {
   const { t } = useI18n();
@@ -34,13 +35,14 @@ export default function DiscoverPage() {
   });
   const [done, setDone] = useState(false);
   const q = questions[step];
+  const pct = ((step + (done ? 1 : 0)) / questions.length) * 100;
 
   if (done) {
     const map = ComplianceAssistant.discover(answers);
     return (
-      <div className="mx-auto max-w-3xl">
-        <h1 className="text-4xl font-medium tracking-tight">{t.discover.mapTitle}</h1>
-        <p className="mt-2 text-sm text-neutral-500">{t.discover.mapNote}</p>
+      <div className="mx-auto max-w-3xl animate-rise">
+        <AppHeader appId="discover" extra={<p className="text-sm text-neutral-500">{t.discover.mapNote}</p>} />
+        <h2 className="text-2xl font-medium tracking-tight">{t.discover.mapTitle}</h2>
         <dl className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-4">
           <div>
             <dt className="text-xs text-neutral-500">{t.discover.attention}</dt>
@@ -80,27 +82,37 @@ export default function DiscoverPage() {
 
   return (
     <div className="mx-auto max-w-xl">
-      <p className="font-mono text-xs text-neutral-500">
+      <AppHeader appId="discover" extra={<p className="text-sm text-neutral-500">{t.discover.intro}</p>} />
+      <div className="h-1 overflow-hidden rounded-full bg-neutral-200" aria-hidden>
+        <div className="h-full bg-[var(--app-accent)] transition-[width] duration-500" style={{ width: `${pct}%` }} />
+      </div>
+      <p className="mt-4 font-mono text-xs text-neutral-500">
         {step + 1} / {questions.length}
       </p>
       <h1 className="mt-3 text-3xl font-medium tracking-tight">{q.label}</h1>
       <p className="mt-2 text-sm text-neutral-500">{t.discover.intro}</p>
       <div className="mt-8 space-y-2">
-        {q.options?.map((opt) => (
-          <button
-            key={opt}
-            type="button"
-            onClick={() => {
-              const next = { ...answers };
-              if (q.key === "importExport") next.importExport = opt === t.business.yes;
-              else (next as Record<string, unknown>)[q.key] = opt;
-              setAnswers(next);
-            }}
-            className="block w-full rounded-md border border-neutral-200 px-4 py-3 text-left text-sm hover:border-neutral-400"
-          >
-            {opt}
-          </button>
-        ))}
+        {q.options?.map((opt) => {
+          const selected =
+            q.key === "importExport" ? (opt === t.business.yes) === answers.importExport : String(answers[q.key]) === opt;
+          return (
+            <button
+              key={opt}
+              type="button"
+              onClick={() => {
+                const next = { ...answers };
+                if (q.key === "importExport") next.importExport = opt === t.business.yes;
+                else (next as Record<string, unknown>)[q.key] = opt;
+                setAnswers(next);
+              }}
+              className={`block w-full rounded-md border px-4 py-3 text-left text-sm ${
+                selected ? "border-neutral-900 bg-neutral-900 text-white" : "border-neutral-200 hover:border-neutral-400"
+              }`}
+            >
+              {opt}
+            </button>
+          );
+        })}
       </div>
       <Button
         className="mt-8"

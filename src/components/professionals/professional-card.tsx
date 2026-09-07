@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Modal, ModalContent, ModalTrigger } from "@/components/ui/modal";
 import { professionalTypeLabel } from "@/data/professionals";
-import { businessProfile } from "@/data/business";
 import { useDemo } from "@/state/demo-provider";
 import { FileNow } from "@/components/filing/file-now";
 import { useI18n } from "@/i18n/provider";
@@ -19,7 +18,7 @@ export function ProfessionalCard({
   requirementId: string;
   requirementTitle: string;
 }) {
-  const { addRequest, requests } = useDemo();
+  const { addRequest, requests, business: businessProfile } = useDemo();
   const { t } = useI18n();
   const sent = requests.some((r) => r.professionalId === professional.id);
   const [done, setDone] = useState(sent);

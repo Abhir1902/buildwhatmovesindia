@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-import { requirements } from "@/data/requirements";
+import { getDb } from "@/lib/json-db";
 import { playClick, playDueNotice } from "@/lib/sounds";
 
 const DUE_KEY = "setu-due-chime";
 
 function dueCount() {
-  return requirements.filter((item) => item.status === "attention").length;
+  return getDb().requirements.filter((item) => item.status === "attention").length;
 }
 
 export function SoundLayer() {

@@ -1,13 +1,13 @@
 "use client";
 
-import { businessProfile } from "@/data/business";
 import { FileNow } from "@/components/filing/file-now";
 import { PortalSession } from "@/components/filing/portal-session";
-import { portals } from "@/data/portals";
+import { useDemo } from "@/state/demo-provider";
 import { useI18n } from "@/i18n/provider";
 
 export default function BusinessPage() {
   const { t } = useI18n();
+  const { business: businessProfile, portals } = useDemo();
   const rows = [
     [t.business.name, businessProfile.name],
     [t.business.location, `${businessProfile.city}, ${businessProfile.state}`],

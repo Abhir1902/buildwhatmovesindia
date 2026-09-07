@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { locales, type LocaleCode } from "@/i18n/dictionaries";
 import { useI18n } from "@/i18n/provider";
@@ -15,13 +15,15 @@ type LanguageSelectProps = {
 export function LanguageSelect({ openUp = false, tone = "light", className }: LanguageSelectProps) {
   const { locale, setLocale, t, dir } = useI18n();
   const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const rootRef = useRef<HTMLSpanElement>(null);
   const menuRef = useRef<HTMLUListElement>(null);
   const [box, setBox] = useState<{ top: number; bottom: number; left: number; width: number } | null>(null);
   const current = locales.find((item) => item.code === locale);
-
-  useEffect(() => setMounted(true), []);
 
   useLayoutEffect(() => {
     if (!open) return;

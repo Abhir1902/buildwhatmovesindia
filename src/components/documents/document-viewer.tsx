@@ -1,10 +1,9 @@
 "use client";
 
 import { Modal, ModalContent } from "@/components/ui/modal";
-import { businessProfile } from "@/data/business";
-import { allRequirements } from "@/data/requirements";
 import type { VaultDocument } from "@/domain/types";
 import { useI18n } from "@/i18n/provider";
+import { useDemo } from "@/state/demo-provider";
 
 export function DocumentViewer({
   doc,
@@ -14,7 +13,8 @@ export function DocumentViewer({
   onClose: () => void;
 }) {
   const { t } = useI18n();
-  const linked = doc ? allRequirements.find((r) => r.id === doc.linkedComplianceId) : null;
+  const { business: businessProfile, requirements } = useDemo();
+  const linked = doc ? requirements.find((r) => r.id === doc.linkedComplianceId) : null;
 
   return (
     <Modal open={!!doc} onOpenChange={(open) => !open && onClose()}>

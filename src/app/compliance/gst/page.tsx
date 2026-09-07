@@ -2,15 +2,16 @@
 
 import { SourcePanel, ConfidenceIndicator } from "@/components/compliance/source-panel";
 import { ProfessionalCard } from "@/components/professionals/professional-card";
-import { JourneyStep } from "@/components/compliance/journey-step";
+import { ObligationJourney } from "@/components/compliance/obligation-journey";
 import { ComplianceAssistant } from "@/services/compliance-assistant";
-import { businessProfile } from "@/data/business";
 import { PortalSession } from "@/components/filing/portal-session";
 import { useI18n } from "@/i18n/provider";
+import { useDemo } from "@/state/demo-provider";
 
 export default function GstPage() {
   const { t } = useI18n();
-  const journey = ComplianceAssistant.createJourney("gst")!;
+  const { business: businessProfile, requirements } = useDemo();
+  const item = requirements.find((row) => row.id === "gst");
   const explanation = ComplianceAssistant.explainRequirement("gst")!;
   const matches = ComplianceAssistant.recommendProfessionals("gst");
 
@@ -51,11 +52,7 @@ export default function GstPage() {
       <ConfidenceIndicator value={explanation.confidence} />
       <SourcePanel sources={explanation.sources} jurisdiction={explanation.jurisdiction} />
 
-      <section className="mt-12">
-        {journey.steps.map((step) => (
-          <JourneyStep key={step.id} step={step} />
-        ))}
-      </section>
+      {item ? <ObligationJourney item={item} /> : null}
 
       <section className="mt-16">
         <h2 className="text-2xl font-medium tracking-tight">{t.gst.helpTitle}</h2>

@@ -1,22 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { JourneyStep } from "@/components/compliance/journey-step";
+import { ObligationJourney } from "@/components/compliance/obligation-journey";
 import { SourcePanel, ConfidenceIndicator } from "@/components/compliance/source-panel";
 import { ProfessionalCard } from "@/components/professionals/professional-card";
 import { ComplianceAssistant } from "@/services/compliance-assistant";
-import { businessProfile } from "@/data/business";
 import { PortalSession } from "@/components/filing/portal-session";
 import { useI18n } from "@/i18n/provider";
+import { useDemo } from "@/state/demo-provider";
 
 export default function PoshPage() {
   const { t } = useI18n();
-  const journey = ComplianceAssistant.createJourney("posh")!;
+  const { business: businessProfile, requirements } = useDemo();
+  const item = requirements.find((row) => row.id === "posh");
   const explanation = ComplianceAssistant.explainRequirement("posh")!;
   const matches = ComplianceAssistant.recommendProfessionals("posh");
   const [why, setWhy] = useState(false);
   const [learn, setLearn] = useState(false);
-  const pct = (journey.completedSteps / journey.totalSteps) * 100;
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -29,18 +29,7 @@ export default function PoshPage() {
       <div className="mt-10">
         <PortalSession portalId="posh" />
       </div>
-      <p className="mt-6 font-mono text-xs text-neutral-500">
-        {t.posh.progress.replace("{done}", String(journey.completedSteps)).replace("{total}", String(journey.totalSteps))}
-      </p>
-      <div className="mt-2 h-1 overflow-hidden rounded-full bg-neutral-200" aria-hidden>
-        <div className="h-full bg-neutral-900 transition-[width] duration-700" style={{ width: `${pct}%` }} />
-      </div>
-
-      <section className="mt-12">
-        {journey.steps.map((step) => (
-          <JourneyStep key={step.id} step={step} />
-        ))}
-      </section>
+      {item ? <ObligationJourney item={item} /> : null}
 
       <section className="mt-12 border-t border-neutral-200 pt-10">
         <button type="button" className="text-left" onClick={() => setWhy((v) => !v)} aria-expanded={why}>

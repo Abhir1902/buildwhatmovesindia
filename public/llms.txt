@@ -1,19 +1,13 @@
 SETU — Compliance Operating System for Indian businesses
 
-Public demo. No login. No API keys.
+Landing: /
+Sign in: /login (one-click demo accounts)
 
-Primary entry: /overview
-Walkthrough index: /demo
-
-Suggested agent path:
+Suggested path after sign-in:
 1. /overview
-2. /compliance/posh (open "Why are you seeing this?", Request professional help)
-3. /compliance/gst
-4. /discover
-5. /tasks
-6. /documents
-7. /professionals
-8. /business
-9. /settings
-
-Language selector is in the sidebar and settings.
+2. /discover
+3. /compliance
+4. /file
+5. /documents
+6. /exposure
+7. /settings

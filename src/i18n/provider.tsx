@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, startTransition, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { dictionaries, locales, type LocaleCode, type Messages } from "@/i18n/dictionaries";
 import { mergeMessages } from "@/i18n/merge";
 
@@ -53,7 +53,7 @@ export function LanguageProvider({
     const next = isLocale(stored) ? stored : isLocale(fromCookie) ? fromCookie : initialLocale;
     persist(next);
     applyDocument(next);
-    setLocaleState(next);
+    startTransition(() => setLocaleState(next));
   }, [initialLocale]);
 
   const value = useMemo(() => {

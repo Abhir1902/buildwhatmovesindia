@@ -1,0 +1,2772 @@
+{
+  "business": {
+    "id": "aarav-engineering",
+    "name": "Aarav Engineering Pvt Ltd",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "industry": "Engineering / Manufacturing",
+    "entity": "Private Limited",
+    "employees": 14,
+    "annualTurnover": "₹2.4 Cr",
+    "gstRegistered": true,
+    "gstin": "27AABCA1234A1Z5",
+    "importExport": false,
+    "locations": 1,
+    "scale": "small"
+  },
+  "users": [
+    {
+      "id": "u-owner",
+      "name": "Aarav Deshmukh",
+      "email": "owner@aarav.in",
+      "password": "setu-demo",
+      "role": "owner",
+      "initials": "AD"
+    },
+    {
+      "id": "u-accounts",
+      "name": "Meera Kulkarni",
+      "email": "accounts@aarav.in",
+      "password": "setu-demo",
+      "role": "accountant",
+      "initials": "MK"
+    },
+    {
+      "id": "u-expert",
+      "name": "Rohit Iyer",
+      "email": "expert@setu.in",
+      "password": "setu-demo",
+      "role": "expert",
+      "initials": "RI"
+    }
+  ],
+  "demoPassword": "setu-demo",
+  "tasks": [
+    {
+      "id": "task-gstr1-jan",
+      "title": "File December GSTR-1",
+      "reason": "GST-registered manufacturer — January window for the December outward supply return.",
+      "dueDate": "2026-01-11",
+      "owner": "Accounts",
+      "status": "todo",
+      "complianceId": "gst",
+      "requiredDocuments": [
+        "Invoice register"
+      ],
+      "nextAction": "Open GST journey"
+    },
+    {
+      "id": "task-epf-jan",
+      "title": "File December EPF ECR",
+      "reason": "14 employees — January 15 is the contribution deadline for December wages.",
+      "dueDate": "2026-01-15",
+      "owner": "Accounts",
+      "status": "todo",
+      "complianceId": "epf",
+      "requiredDocuments": [
+        "Wage register"
+      ],
+      "nextAction": "Share with CA"
+    },
+    {
+      "id": "task-gstr3b-jan",
+      "title": "File December GSTR-3B",
+      "reason": "Monthly summary return for December, due in January.",
+      "dueDate": "2026-01-20",
+      "owner": "Accounts",
+      "status": "todo",
+      "complianceId": "gst",
+      "requiredDocuments": [
+        "GSTR-3B draft"
+      ],
+      "nextAction": "Open GST journey"
+    },
+    {
+      "id": "task-gstr1-feb",
+      "title": "File January GSTR-1",
+      "reason": "Outward supplies for January, due in February.",
+      "dueDate": "2026-02-11",
+      "owner": "Accounts",
+      "status": "todo",
+      "complianceId": "gst",
+      "requiredDocuments": [
+        "Invoice register"
+      ],
+      "nextAction": "Open GST journey"
+    },
+    {
+      "id": "task-epf-feb",
+      "title": "File January EPF ECR",
+      "reason": "Monthly PF for January wages.",
+      "dueDate": "2026-02-15",
+      "owner": "HR",
+      "status": "todo",
+      "complianceId": "epf",
+      "requiredDocuments": [
+        "Wage register"
+      ],
+      "nextAction": "Share with CA"
+    },
+    {
+      "id": "task-advance-tax-mar",
+      "title": "Pay Q4 advance tax",
+      "reason": "Private limited companies typically close the last instalment by 15 March.",
+      "dueDate": "2026-03-15",
+      "owner": "Accounts",
+      "status": "todo",
+      "complianceId": "gst",
+      "requiredDocuments": [
+        "Tax computation"
+      ],
+      "nextAction": "Review with CA"
+    },
+    {
+      "id": "task-fy-close-mar",
+      "title": "Assemble FY close pack",
+      "reason": "Books, invoices and statutory registers should be together before year-end.",
+      "dueDate": "2026-03-31",
+      "owner": "CS",
+      "status": "todo",
+      "complianceId": "mca",
+      "requiredDocuments": [
+        "Audited financials"
+      ],
+      "nextAction": "Keep books ready"
+    },
+    {
+      "id": "task-posh-policy",
+      "title": "Draft POSH policy",
+      "reason": "Internal Committee exists; employees still need a written, understandable policy.",
+      "dueDate": "2026-09-10",
+      "owner": "Operations",
+      "status": "in_progress",
+      "complianceId": "posh",
+      "requiredDocuments": [
+        "POSH policy draft"
+      ],
+      "nextAction": "Open POSH journey"
+    },
+    {
+      "id": "task-gst",
+      "title": "Review September GST pack",
+      "reason": "GST-registered manufacturer with an upcoming return window.",
+      "dueDate": "2026-09-16",
+      "owner": "Accounts",
+      "status": "todo",
+      "complianceId": "gst",
+      "requiredDocuments": [
+        "Invoice register",
+        "GSTR-3B draft"
+      ],
+      "nextAction": "Open GST journey"
+    },
+    {
+      "id": "task-epf",
+      "title": "Prepare EPF challan",
+      "reason": "14 employees — monthly contribution should not slip.",
+      "dueDate": "2026-09-15",
+      "owner": "Accounts",
+      "status": "todo",
+      "complianceId": "epf",
+      "requiredDocuments": [
+        "Wage register"
+      ],
+      "nextAction": "Share with CA"
+    },
+    {
+      "id": "task-factory",
+      "title": "Confirm factory licence",
+      "reason": "Manufacturing activity in Pune may require a factory licence.",
+      "dueDate": "2026-09-20",
+      "owner": "Plant admin",
+      "status": "waiting_professional",
+      "complianceId": "factory",
+      "requiredDocuments": [
+        "Layout plan"
+      ],
+      "nextAction": "Wait for Faizan Qureshi"
+    },
+    {
+      "id": "task-ic-letters",
+      "title": "File IC nomination letters",
+      "reason": "Committee members were nominated; letters should sit in the vault.",
+      "dueDate": "2026-09-05",
+      "owner": "HR",
+      "status": "waiting_professional",
+      "complianceId": "posh",
+      "requiredDocuments": [
+        "IC nomination letters"
+      ],
+      "nextAction": "Wait for Priya Shah"
+    },
+    {
+      "id": "task-shops",
+      "title": "Shops & Establishment renewal pack",
+      "reason": "Pune establishment certificate is approaching renewal.",
+      "dueDate": "2026-09-29",
+      "owner": "Admin",
+      "status": "todo",
+      "complianceId": "shops",
+      "requiredDocuments": [
+        "Establishment certificate"
+      ],
+      "nextAction": "Review documents"
+    },
+    {
+      "id": "task-esi",
+      "title": "File ESI contribution",
+      "reason": "Wage-band check is due for the Pune unit.",
+      "dueDate": "2026-09-12",
+      "owner": "HR",
+      "status": "todo",
+      "complianceId": "esi",
+      "requiredDocuments": [
+        "Wage register"
+      ],
+      "nextAction": "File on ESIC portal"
+    },
+    {
+      "id": "task-mca",
+      "title": "File AOC-4 / MGT-7",
+      "reason": "Private limited annual filings stay on the MCA calendar.",
+      "dueDate": "2026-11-30",
+      "owner": "CS",
+      "status": "todo",
+      "complianceId": "mca",
+      "requiredDocuments": [
+        "Audited financials"
+      ],
+      "nextAction": "File on MCA21"
+    },
+    {
+      "id": "task-gstr3b-jul",
+      "title": "File July GSTR-3B",
+      "reason": "July summary return was filed on GSTN. ARN AA270726104411 is the close-out for that period.",
+      "dueDate": "2026-09-02",
+      "owner": "Accounts",
+      "status": "completed",
+      "complianceId": "gst",
+      "requiredDocuments": [
+        "Filing acknowledgement"
+      ],
+      "nextAction": "Done"
+    },
+    {
+      "id": "task-ptax",
+      "title": "Remit professional tax",
+      "reason": "Maharashtra PT for 14 employees.",
+      "dueDate": "2026-09-30",
+      "owner": "Accounts",
+      "status": "todo",
+      "complianceId": "ptax",
+      "requiredDocuments": [
+        "PT registration"
+      ],
+      "nextAction": "File PT"
+    }
+  ],
+  "documents": [],
+  "filings": [],
+  "requests": [
+    {
+      "id": "req-ic",
+      "professionalId": "priya-shah",
+      "requirementId": "posh",
+      "status": "waiting",
+      "stage": "External member consent",
+      "detail": "Priya Shah (Mumbai, POSH specialist) has the Internal Committee pack. External member consent is still unsigned, so nomination letters cannot be vaulted."
+    },
+    {
+      "id": "req-factory",
+      "professionalId": "faizan-qureshi",
+      "requirementId": "factory",
+      "status": "waiting",
+      "stage": "Layout plan review",
+      "detail": "Faizan Qureshi is checking the Pune unit layout against DISH Maharashtra factory-licence thresholds — power, exits and worker count — before the application can move."
+    }
+  ],
+  "notifications": [],
+  "requirements": [
+    {
+      "id": "posh",
+      "slug": "posh",
+      "title": "POSH implementation",
+      "category": "Employee policy & workplace compliance",
+      "description": "Build the workplace prevention framework your organisation may need once employees are on the payroll.",
+      "status": "attention",
+      "priority": "high",
+      "jurisdiction": "Maharashtra / India",
+      "dueDate": "2026-09-10",
+      "progress": 40,
+      "nextAction": "Continue POSH setup",
+      "href": "/compliance/posh",
+      "confidence": "high",
+      "applicability": "Based on the information provided, this requirement may apply because your organisation has employees and operates in India. Verify with a qualified professional.",
+      "sources": [
+        {
+          "id": "posh-act",
+          "title": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+          "publisher": "Ministry of Women and Child Development",
+          "url": "https://wcd.nic.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [
+        "POSH policy",
+        "Internal Committee nomination letters",
+        "Training attendance log"
+      ],
+      "professionalTypes": [
+        "posh_specialist",
+        "labour_lawyer",
+        "hr_consultant"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": [
+        {
+          "id": "posh-1",
+          "number": "01",
+          "title": "Understand applicability",
+          "summary": "Confirm whether the POSH framework is relevant to how you employ people today — not just whether a form exists.",
+          "whyItMatters": "If it applies and nothing is in place, employees have no clear path to raise a concern and the business has no defensible process.",
+          "action": "Review the applicability note against your headcount and workplace setup.",
+          "documents": [
+            "Employee roster"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "posh-2",
+          "number": "02",
+          "title": "Set up Internal Committee",
+          "summary": "Appoint members who can receive and examine complaints, including an external member as the law typically requires.",
+          "whyItMatters": "A policy without a committee is incomplete. People need to know who they can speak to.",
+          "action": "Nominate Internal Committee members and record their consent.",
+          "documents": [
+            "IC nomination letters",
+            "External member consent"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "posh-3",
+          "number": "03",
+          "title": "Create / review policy",
+          "summary": "Write a plain-language policy that explains what is not acceptable, how to report, and what happens next.",
+          "whyItMatters": "Employees and managers cannot follow a process they cannot find or understand.",
+          "action": "Draft or review the POSH policy with professional support if needed.",
+          "documents": [
+            "POSH policy draft"
+          ],
+          "status": "current"
+        },
+        {
+          "id": "posh-4",
+          "number": "04",
+          "title": "Employee awareness & training",
+          "summary": "Tell every employee that the policy exists, who is on the committee, and how to report a concern.",
+          "whyItMatters": "Awareness is part of the obligation, not an optional extra.",
+          "action": "Schedule a short awareness session and keep an attendance record.",
+          "documents": [
+            "Training attendance log"
+          ],
+          "status": "upcoming"
+        },
+        {
+          "id": "posh-5",
+          "number": "05",
+          "title": "Ongoing compliance",
+          "summary": "Keep records, refresh training, and file any annual information the law may require.",
+          "whyItMatters": "POSH is not a one-time setup. It has to stay current as the team changes.",
+          "action": "Add annual review and filing reminders to your calendar.",
+          "documents": [
+            "Annual report template"
+          ],
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "gst",
+      "slug": "gst",
+      "title": "GST filing",
+      "category": "Tax compliance",
+      "description": "Stay current on GST returns for the Pune manufacturing operations.",
+      "status": "upcoming",
+      "priority": "medium",
+      "jurisdiction": "India",
+      "dueDate": "2026-09-16",
+      "progress": 72,
+      "nextAction": "Review GST filing",
+      "href": "/compliance/gst",
+      "confidence": "high",
+      "applicability": "Based on the information provided, GST return obligations may apply because the business is GST-registered. Verify filing positions with a GST practitioner.",
+      "sources": [
+        {
+          "id": "gst-act",
+          "title": "Central Goods and Services Tax Act, 2017 — return filing framework",
+          "publisher": "CBIC / GSTN",
+          "url": "https://www.gst.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [
+        "GSTR-1 working papers",
+        "GSTR-3B draft",
+        "GST registration certificate"
+      ],
+      "professionalTypes": [
+        "gst_practitioner",
+        "ca"
+      ],
+      "recurring": "Monthly / quarterly, depending on scheme",
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": [
+        {
+          "id": "gst-1",
+          "number": "01",
+          "title": "Confirm registration",
+          "summary": "Your GSTIN is on file. Keep the certificate accessible.",
+          "whyItMatters": "Buyers and officers will ask for the registration proof.",
+          "action": "Keep the GST certificate in the document vault.",
+          "documents": [
+            "GST certificate"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "gst-2",
+          "number": "02",
+          "title": "Prepare upcoming return",
+          "summary": "Collect invoices and reconcile outward and inward supplies for the period.",
+          "whyItMatters": "Late or mismatched returns attract notices and cash-flow surprises.",
+          "action": "Review the September filing pack.",
+          "documents": [
+            "Invoice register",
+            "GSTR-3B draft"
+          ],
+          "status": "current"
+        },
+        {
+          "id": "gst-3",
+          "number": "03",
+          "title": "File and archive",
+          "summary": "File on GSTN and store acknowledgements with the period they belong to.",
+          "whyItMatters": "Proof of filing is needed during scrutiny or loan diligence.",
+          "action": "File with your CA or GST practitioner.",
+          "documents": [
+            "Filing acknowledgement"
+          ],
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "shops",
+      "slug": "shops",
+      "title": "Shops & Establishment renewal",
+      "category": "Local compliance",
+      "description": "Renew the Pune establishment registration before it lapses.",
+      "status": "upcoming",
+      "priority": "medium",
+      "jurisdiction": "Maharashtra",
+      "dueDate": "2026-09-29",
+      "progress": 55,
+      "nextAction": "Review renewal",
+      "href": "/compliance/shops",
+      "confidence": "high",
+      "applicability": "A workplace in Maharashtra typically needs a shops or establishment registration. Confirm the exact local form with a licensing consultant.",
+      "sources": [
+        {
+          "id": "shops-mh",
+          "title": "Maharashtra Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2017",
+          "publisher": "Government of Maharashtra",
+          "url": "https://mahakamgar.maharashtra.gov.in",
+          "jurisdiction": "Maharashtra",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [
+        "Establishment certificate",
+        "Address proof"
+      ],
+      "professionalTypes": [
+        "licensing_consultant",
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": [
+        {
+          "id": "shops-1",
+          "number": "01",
+          "title": "Confirm Pune registration",
+          "summary": "Aarav Engineering already holds a Maharashtra Shops & Establishment certificate for the Pune unit.",
+          "whyItMatters": "Operating without a live registration can stop inspections, bank KYC and licence renewals further down the chain.",
+          "action": "Keep the establishment certificate in the vault and note the expiry.",
+          "documents": [
+            "Establishment certificate"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "shops-2",
+          "number": "02",
+          "title": "Assemble the renewal pack",
+          "summary": "Address proof, employer details and the existing certificate number sit together before the labour department asks for them.",
+          "whyItMatters": "Maharashtra renewals bounce when the address on the form does not match the unit.",
+          "action": "Collect address proof and match it to the Pune factory gate address.",
+          "documents": [
+            "Address proof"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "shops-3",
+          "number": "03",
+          "title": "Review fee and Form A",
+          "summary": "Compute the renewal fee against current headcount (14) and check Form A particulars.",
+          "whyItMatters": "Wrong fee or an outdated occupier name is the usual reason a Mahakamgar filing sits in query.",
+          "action": "Review the renewal working papers before the 29 September window.",
+          "documents": [
+            "Establishment certificate",
+            "Address proof"
+          ],
+          "status": "current"
+        },
+        {
+          "id": "shops-4",
+          "number": "04",
+          "title": "File renewal on Mahakamgar",
+          "summary": "Submit the renewal on the Maharashtra labour portal and archive the acknowledgement against this certificate.",
+          "whyItMatters": "The next inspection and any Shop Act amendment start from this receipt.",
+          "action": "File inside SETU when the pack is signed off.",
+          "documents": [
+            "Renewal acknowledgement"
+          ],
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "epf",
+      "slug": "epf",
+      "title": "EPF monthly contribution",
+      "category": "Employee benefits",
+      "description": "Deposit provident fund contributions for the current wage month.",
+      "status": "attention",
+      "priority": "high",
+      "jurisdiction": "India",
+      "dueDate": "2026-09-15",
+      "progress": 30,
+      "nextAction": "Prepare EPF challan",
+      "href": "/compliance/epf",
+      "confidence": "high",
+      "applicability": "With 14 employees, EPF coverage may already apply. Confirm establishment code and wage definitions with a CA or labour consultant.",
+      "sources": [
+        {
+          "id": "epf",
+          "title": "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+          "publisher": "EPFO",
+          "url": "https://www.epfindia.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [
+        "Wage register",
+        "EPF challan"
+      ],
+      "professionalTypes": [
+        "ca",
+        "hr_consultant"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": [
+        {
+          "id": "epf-1",
+          "number": "01",
+          "title": "Confirm establishment code",
+          "summary": "Fourteen employees puts this unit inside EPF coverage. The establishment code must match EPFO records.",
+          "whyItMatters": "A wrong code files someone else's ECR, or none at all.",
+          "action": "Keep the PF establishment code next to the wage register.",
+          "documents": [
+            "PF establishment code"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "epf-2",
+          "number": "02",
+          "title": "Prepare ECR from wages",
+          "summary": "Build the Electronic Challan cum Return from August / September wages for all 14 staff.",
+          "whyItMatters": "EPFO due date is the 15th. A late ECR is a late challan.",
+          "action": "Prepare the wage register and ECR working sheet.",
+          "documents": [
+            "Wage register"
+          ],
+          "status": "current"
+        },
+        {
+          "id": "epf-3",
+          "number": "03",
+          "title": "Generate challan",
+          "summary": "Once the ECR balances, generate the monthly challan for employer and employee share.",
+          "whyItMatters": "Payment without a matching ECR still shows as default on the unified portal.",
+          "action": "Raise the challan after Accounts signs the wage sheet.",
+          "documents": [
+            "EPF challan"
+          ],
+          "status": "upcoming"
+        },
+        {
+          "id": "epf-4",
+          "number": "04",
+          "title": "File on EPFO unified portal",
+          "summary": "Submit ECR and pay the challan on the unified portal, then drop the TRRN into the vault.",
+          "whyItMatters": "TRRN is the only proof a lender or inspector will accept.",
+          "action": "File inside SETU on or before 15 September.",
+          "documents": [
+            "EPF challan"
+          ],
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "esi",
+      "slug": "esi",
+      "title": "ESI coverage check",
+      "category": "Employee benefits",
+      "description": "Confirm whether ESI applies to current wage bands at the Pune unit.",
+      "status": "attention",
+      "priority": "medium",
+      "jurisdiction": "India",
+      "dueDate": "2026-09-12",
+      "progress": 15,
+      "nextAction": "Review wage bands",
+      "href": "/compliance/esi",
+      "confidence": "medium",
+      "applicability": "ESI may apply depending on wage limits and location. This is a check, not a conclusion.",
+      "sources": [
+        {
+          "id": "esi",
+          "title": "Employees’ State Insurance Act, 1948",
+          "publisher": "ESIC",
+          "url": "https://www.esic.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [
+        "Wage register"
+      ],
+      "professionalTypes": [
+        "hr_consultant",
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": [
+        {
+          "id": "esi-1",
+          "number": "01",
+          "title": "Check wage-band coverage",
+          "summary": "ESI applies only where wages sit under the notified ceiling and the unit is in a notified area. Pune is notified; the wage bands still need a pass.",
+          "whyItMatters": "Registering people who are out of coverage, or missing people who are in, both attract ESIC notices.",
+          "action": "Review the September wage register against the current ESI wage limit.",
+          "documents": [
+            "Wage register"
+          ],
+          "status": "current"
+        },
+        {
+          "id": "esi-2",
+          "number": "02",
+          "title": "Confirm ESIC code",
+          "summary": "If any employee is covered, the employer code on the ESIC portal must already exist for this Pune unit.",
+          "whyItMatters": "Contribution cannot be filed against a code that does not match the factory address.",
+          "action": "Confirm whether Aarav already has an ESIC employer code.",
+          "documents": [
+            "ESIC employer code"
+          ],
+          "status": "upcoming"
+        },
+        {
+          "id": "esi-3",
+          "number": "03",
+          "title": "Prepare monthly contribution",
+          "summary": "Split employer and employee share for covered staff only.",
+          "whyItMatters": "A blended wage sheet that includes excluded staff will not match the ESIC challan.",
+          "action": "Draft the contribution statement from the wage register.",
+          "documents": [
+            "Wage register"
+          ],
+          "status": "upcoming"
+        },
+        {
+          "id": "esi-4",
+          "number": "04",
+          "title": "File on ESIC employer portal",
+          "summary": "Pay and file the monthly return, then store the ESIC acknowledgement.",
+          "whyItMatters": "Medical benefit for staff, and inspection defence, both start from this receipt.",
+          "action": "File inside SETU once coverage is confirmed.",
+          "documents": [
+            "ESI contribution challan"
+          ],
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "mca",
+      "slug": "mca",
+      "title": "MCA annual filings",
+      "category": "Corporate",
+      "description": "AOC-4 and MGT-7 remain on the annual calendar for a private limited company.",
+      "status": "healthy",
+      "priority": "medium",
+      "jurisdiction": "India",
+      "dueDate": "2026-11-30",
+      "progress": 80,
+      "nextAction": "Keep books ready",
+      "href": "/compliance/mca",
+      "confidence": "high",
+      "applicability": "Private limited companies typically file annual financial and ownership returns with MCA.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [
+        "Audited financials",
+        "Director KYC"
+      ],
+      "professionalTypes": [
+        "cs",
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": [
+        {
+          "id": "mca-1",
+          "number": "01",
+          "title": "Close the books",
+          "summary": "FY books for the Pune company are with the CA. Trial balance is in a shape a CS can file from.",
+          "whyItMatters": "AOC-4 cannot be filed on draft numbers that still move.",
+          "action": "Keep the closed books pack together.",
+          "documents": [
+            "Audited financials"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "mca-2",
+          "number": "02",
+          "title": "Director KYC current",
+          "summary": "DIR-3 KYC for the sitting directors is already marked current for this year.",
+          "whyItMatters": "MCA blocks annual filing if a director KYC is overdue.",
+          "action": "No further KYC this week.",
+          "documents": [
+            "Director KYC"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "mca-3",
+          "number": "03",
+          "title": "Draft AOC-4",
+          "summary": "Financial statements and Board report mapped into AOC-4 working papers.",
+          "whyItMatters": "Wrong auditor or attachment set is the usual SRN rejection.",
+          "action": "Leave the AOC-4 draft with the CS.",
+          "documents": [
+            "Audited financials"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "mca-4",
+          "number": "04",
+          "title": "Draft MGT-7",
+          "summary": "Annual return — shareholding, directors, and registered office — still needs a last pass before MCA21.",
+          "whyItMatters": "MGT-7 is the ownership picture. A mismatch with the register is a compounding event.",
+          "action": "Keep books ready for the CS review of MGT-7.",
+          "documents": [
+            "Audited financials",
+            "Director KYC"
+          ],
+          "status": "current"
+        },
+        {
+          "id": "mca-5",
+          "number": "05",
+          "title": "File AOC-4 and MGT-7",
+          "summary": "Upload on MCA21, pay the fee, and vault the SRNs against this company.",
+          "whyItMatters": "Private limited companies stay visible to lenders and MCA only while these two returns are current.",
+          "action": "File on MCA21 before 30 November.",
+          "documents": [
+            "MCA filing SRN"
+          ],
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "factory",
+      "slug": "factory",
+      "title": "Factory licence validity",
+      "category": "Licences",
+      "description": "Manufacturing premises may need a factory licence depending on power and worker count.",
+      "status": "attention",
+      "priority": "high",
+      "jurisdiction": "Maharashtra",
+      "dueDate": "2026-09-20",
+      "progress": 20,
+      "nextAction": "Confirm factory licence",
+      "href": "/compliance/factory",
+      "confidence": "medium",
+      "applicability": "Based on engineering/manufacturing activity, a factory licence may apply. Confirm thresholds with the state inspectorate.",
+      "sources": [
+        {
+          "id": "factories",
+          "title": "Factories Act, 1948 — licensing and safety",
+          "publisher": "Maharashtra Directorate of Industrial Safety and Health",
+          "url": "https://mahadish.in",
+          "jurisdiction": "Maharashtra",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [
+        "Layout plan",
+        "Power sanction"
+      ],
+      "professionalTypes": [
+        "licensing_consultant",
+        "labour_lawyer"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": [
+        {
+          "id": "factory-1",
+          "number": "01",
+          "title": "Test Factories Act coverage",
+          "summary": "Pune unit does engineering / manufacturing with power. That usually pulls the premises into the Factories Act, not only Shop Act.",
+          "whyItMatters": "A shop registration does not cover a powered manufacturing floor.",
+          "action": "Treat factory licensing as in scope until DISH says otherwise.",
+          "documents": [
+            "Activity note"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "factory-2",
+          "number": "02",
+          "title": "Collect approved layout",
+          "summary": "DISH wants a layout that shows machinery, exits, welfare rooms and the occupied area.",
+          "whyItMatters": "Applications without a scaled layout are returned. This is where the file is stuck.",
+          "action": "Wait for the licensing consultant to mark the Pune layout against DISH norms.",
+          "documents": [
+            "Layout plan"
+          ],
+          "status": "current"
+        },
+        {
+          "id": "factory-3",
+          "number": "03",
+          "title": "Attach power sanction",
+          "summary": "Connected load from MSEDCL (or the current sanction letter) has to match the layout's machinery list.",
+          "whyItMatters": "Licence category follows horsepower. A mismatch is a query, not a licence.",
+          "action": "Pull the power sanction once the layout is accepted.",
+          "documents": [
+            "Power sanction"
+          ],
+          "status": "upcoming"
+        },
+        {
+          "id": "factory-4",
+          "number": "04",
+          "title": "Safety and welfare checklist",
+          "summary": "Toilets, drinking water, first aid and fencing as the Factories Act expects for this headcount.",
+          "whyItMatters": "DISH inspects what the layout promised.",
+          "action": "Walk the shop floor against the layout.",
+          "documents": [
+            "Safety checklist"
+          ],
+          "status": "upcoming"
+        },
+        {
+          "id": "factory-5",
+          "number": "05",
+          "title": "Apply / renew with DISH",
+          "summary": "File the factory licence (or renewal) on the Maharashtra DISH portal and vault the licence copy.",
+          "whyItMatters": "Running a powered factory without this licence is a prosecutable default.",
+          "action": "File inside SETU after layout and power papers are in.",
+          "documents": [
+            "Factory licence"
+          ],
+          "status": "upcoming"
+        }
+      ]
+    },
+    {
+      "id": "ptax",
+      "slug": "ptax",
+      "title": "Professional tax",
+      "category": "Local tax",
+      "description": "Maharashtra professional tax for employees is currently on track.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "Maharashtra",
+      "dueDate": "2026-09-30",
+      "progress": 90,
+      "nextAction": "No action this week",
+      "href": "/compliance/ptax",
+      "confidence": "high",
+      "applicability": "Employers in Maharashtra typically deduct and remit professional tax.",
+      "sources": [
+        {
+          "id": "shops-mh",
+          "title": "Maharashtra Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2017",
+          "publisher": "Government of Maharashtra",
+          "url": "https://mahakamgar.maharashtra.gov.in",
+          "jurisdiction": "Maharashtra",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [
+        "PT registration"
+      ],
+      "professionalTypes": [
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": [
+        {
+          "id": "ptax-1",
+          "number": "01",
+          "title": "PT enrolment on file",
+          "summary": "Maharashtra professional tax enrolment for the Pune employer is already in the register.",
+          "whyItMatters": "You cannot remit PT against a lapsed enrolment.",
+          "action": "Keep the PT registration certificate in the vault.",
+          "documents": [
+            "PT registration"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "ptax-2",
+          "number": "02",
+          "title": "Deduct from payroll",
+          "summary": "Slab-wise PT is already deducted for all 14 employees on the current payroll run.",
+          "whyItMatters": "Under-deduction is recovered from the employer, not the staff.",
+          "action": "No payroll change this week.",
+          "documents": [
+            "Wage register"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "ptax-3",
+          "number": "03",
+          "title": "Prepare the monthly return",
+          "summary": "Employee-wise deduction list matches the PT portal template.",
+          "whyItMatters": "A return that does not match challan amount is the usual PT notice.",
+          "action": "Keep the working paper with Accounts.",
+          "documents": [
+            "PT registration"
+          ],
+          "status": "complete"
+        },
+        {
+          "id": "ptax-4",
+          "number": "04",
+          "title": "Remit on the PT portal",
+          "summary": "Pay September professional tax and archive the MHPT acknowledgement.",
+          "whyItMatters": "Maharashtra PT is a monthly rhythm. Missing one month is a compounding late fee.",
+          "action": "Remit before 30 September. No action this week unless payroll changes.",
+          "documents": [
+            "PT registration"
+          ],
+          "status": "current"
+        }
+      ]
+    },
+    {
+      "id": "healthy-1",
+      "slug": "healthy-1",
+      "title": "Director KYC",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-2",
+      "slug": "healthy-2",
+      "title": "Board minutes archive",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-3",
+      "slug": "healthy-3",
+      "title": "TDS quarterly return",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-4",
+      "slug": "healthy-4",
+      "title": "Fire NOC tracker",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-5",
+      "slug": "healthy-5",
+      "title": "Trade licence copy",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-6",
+      "slug": "healthy-6",
+      "title": "Bank KYC pack",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-7",
+      "slug": "healthy-7",
+      "title": "Invoice series control",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-8",
+      "slug": "healthy-8",
+      "title": "Statutory registers",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-9",
+      "slug": "healthy-9",
+      "title": "Director KYC",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-10",
+      "slug": "healthy-10",
+      "title": "Board minutes archive",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-11",
+      "slug": "healthy-11",
+      "title": "TDS quarterly return",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-12",
+      "slug": "healthy-12",
+      "title": "Fire NOC tracker",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-13",
+      "slug": "healthy-13",
+      "title": "Trade licence copy",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-14",
+      "slug": "healthy-14",
+      "title": "Bank KYC pack",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-15",
+      "slug": "healthy-15",
+      "title": "Invoice series control",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-16",
+      "slug": "healthy-16",
+      "title": "Statutory registers",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-17",
+      "slug": "healthy-17",
+      "title": "Director KYC",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-18",
+      "slug": "healthy-18",
+      "title": "Board minutes archive",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-19",
+      "slug": "healthy-19",
+      "title": "TDS quarterly return",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-20",
+      "slug": "healthy-20",
+      "title": "Fire NOC tracker",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-21",
+      "slug": "healthy-21",
+      "title": "Trade licence copy",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-22",
+      "slug": "healthy-22",
+      "title": "Bank KYC pack",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-23",
+      "slug": "healthy-23",
+      "title": "Invoice series control",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "healthy-24",
+      "slug": "healthy-24",
+      "title": "Statutory registers",
+      "category": "On track",
+      "description": "Currently recorded as healthy for this demo business.",
+      "status": "healthy",
+      "priority": "low",
+      "jurisdiction": "India",
+      "dueDate": "2026-12-15",
+      "progress": 100,
+      "nextAction": "No action needed",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Tracked as healthy based on the current demo profile.",
+      "sources": [
+        {
+          "id": "companies",
+          "title": "Companies Act, 2013 — annual filings",
+          "publisher": "Ministry of Corporate Affairs",
+          "url": "https://www.mca.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "cs"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "upcoming-1",
+      "slug": "upcoming-1",
+      "title": "TDS payment",
+      "category": "Upcoming",
+      "description": "On the calendar, not yet due.",
+      "status": "upcoming",
+      "priority": "low",
+      "jurisdiction": "Maharashtra / India",
+      "dueDate": "2026-10-10",
+      "progress": 60,
+      "nextAction": "Review later",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Listed as upcoming based on typical manufacturing calendars. Confirm locally.",
+      "sources": [
+        {
+          "id": "epf",
+          "title": "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+          "publisher": "EPFO",
+          "url": "https://www.epfindia.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "upcoming-2",
+      "slug": "upcoming-2",
+      "title": "Form 11 EPF declaration",
+      "category": "Upcoming",
+      "description": "On the calendar, not yet due.",
+      "status": "upcoming",
+      "priority": "low",
+      "jurisdiction": "Maharashtra / India",
+      "dueDate": "2026-10-11",
+      "progress": 60,
+      "nextAction": "Review later",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Listed as upcoming based on typical manufacturing calendars. Confirm locally.",
+      "sources": [
+        {
+          "id": "epf",
+          "title": "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+          "publisher": "EPFO",
+          "url": "https://www.epfindia.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "upcoming-3",
+      "slug": "upcoming-3",
+      "title": "Labour welfare fund",
+      "category": "Upcoming",
+      "description": "On the calendar, not yet due.",
+      "status": "upcoming",
+      "priority": "low",
+      "jurisdiction": "Maharashtra / India",
+      "dueDate": "2026-10-12",
+      "progress": 60,
+      "nextAction": "Review later",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Listed as upcoming based on typical manufacturing calendars. Confirm locally.",
+      "sources": [
+        {
+          "id": "epf",
+          "title": "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+          "publisher": "EPFO",
+          "url": "https://www.epfindia.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "upcoming-4",
+      "slug": "upcoming-4",
+      "title": "Pollution consent reminder",
+      "category": "Upcoming",
+      "description": "On the calendar, not yet due.",
+      "status": "upcoming",
+      "priority": "low",
+      "jurisdiction": "Maharashtra / India",
+      "dueDate": "2026-10-13",
+      "progress": 60,
+      "nextAction": "Review later",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Listed as upcoming based on typical manufacturing calendars. Confirm locally.",
+      "sources": [
+        {
+          "id": "epf",
+          "title": "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+          "publisher": "EPFO",
+          "url": "https://www.epfindia.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "upcoming-5",
+      "slug": "upcoming-5",
+      "title": "Insurance renewal",
+      "category": "Upcoming",
+      "description": "On the calendar, not yet due.",
+      "status": "upcoming",
+      "priority": "low",
+      "jurisdiction": "Maharashtra / India",
+      "dueDate": "2026-10-14",
+      "progress": 60,
+      "nextAction": "Review later",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Listed as upcoming based on typical manufacturing calendars. Confirm locally.",
+      "sources": [
+        {
+          "id": "epf",
+          "title": "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+          "publisher": "EPFO",
+          "url": "https://www.epfindia.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    },
+    {
+      "id": "upcoming-6",
+      "slug": "upcoming-6",
+      "title": "ISO document review",
+      "category": "Upcoming",
+      "description": "On the calendar, not yet due.",
+      "status": "upcoming",
+      "priority": "low",
+      "jurisdiction": "Maharashtra / India",
+      "dueDate": "2026-10-15",
+      "progress": 60,
+      "nextAction": "Review later",
+      "href": "/compliance",
+      "confidence": "medium",
+      "applicability": "Listed as upcoming based on typical manufacturing calendars. Confirm locally.",
+      "sources": [
+        {
+          "id": "epf",
+          "title": "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+          "publisher": "EPFO",
+          "url": "https://www.epfindia.gov.in",
+          "jurisdiction": "India",
+          "lastVerified": "2026-08-29"
+        }
+      ],
+      "requiredDocuments": [],
+      "professionalTypes": [
+        "ca"
+      ],
+      "scaleRelevance": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "steps": []
+    }
+  ],
+  "featuredRequirementIds": [
+    "posh",
+    "gst",
+    "shops",
+    "epf",
+    "esi",
+    "mca",
+    "factory",
+    "ptax"
+  ],
+  "professionals": [
+    {
+      "id": "priya-shah",
+      "name": "Priya Shah",
+      "type": "posh_specialist",
+      "specialty": "POSH & Employment Law",
+      "city": "Mumbai",
+      "years": 8,
+      "verified": true,
+      "canHelp": [
+        "Internal Committee setup",
+        "POSH policy",
+        "Employee training",
+        "Annual compliance"
+      ],
+      "languages": [
+        "English",
+        "Hindi",
+        "Marathi"
+      ],
+      "forRequirementIds": [
+        "posh"
+      ]
+    },
+    {
+      "id": "ananya-iyer",
+      "name": "Ananya Iyer",
+      "type": "hr_consultant",
+      "specialty": "Workplace policy & training",
+      "city": "Pune",
+      "years": 11,
+      "verified": true,
+      "canHelp": [
+        "Employee handbooks",
+        "Awareness sessions",
+        "HR process design"
+      ],
+      "languages": [
+        "English",
+        "Tamil",
+        "Hindi"
+      ],
+      "forRequirementIds": [
+        "posh",
+        "esi",
+        "epf"
+      ]
+    },
+    {
+      "id": "rohan-deshmukh",
+      "name": "Rohan Deshmukh",
+      "type": "labour_lawyer",
+      "specialty": "Labour & industrial law",
+      "city": "Pune",
+      "years": 14,
+      "verified": true,
+      "canHelp": [
+        "Factory licence queries",
+        "Standing orders",
+        "POSH inquiries"
+      ],
+      "languages": [
+        "English",
+        "Marathi",
+        "Hindi"
+      ],
+      "forRequirementIds": [
+        "posh",
+        "factory"
+      ]
+    },
+    {
+      "id": "meera-kapoor",
+      "name": "Meera Kapoor",
+      "type": "gst_practitioner",
+      "specialty": "GST returns & notices",
+      "city": "Pune",
+      "years": 9,
+      "verified": true,
+      "canHelp": [
+        "GSTR-1 / 3B",
+        "Reconciliation",
+        "Notice response"
+      ],
+      "languages": [
+        "English",
+        "Hindi"
+      ],
+      "forRequirementIds": [
+        "gst"
+      ]
+    },
+    {
+      "id": "arjun-mehta",
+      "name": "Arjun Mehta",
+      "type": "ca",
+      "specialty": "Chartered Accountant — SME tax",
+      "city": "Pune",
+      "years": 12,
+      "verified": true,
+      "canHelp": [
+        "GST",
+        "TDS",
+        "EPF/ESI coordination",
+        "MCA numbers"
+      ],
+      "languages": [
+        "English",
+        "Gujarati",
+        "Hindi"
+      ],
+      "forRequirementIds": [
+        "gst",
+        "epf",
+        "mca"
+      ]
+    },
+    {
+      "id": "nisha-kulkarni",
+      "name": "Nisha Kulkarni",
+      "type": "cs",
+      "specialty": "Company Secretary",
+      "city": "Mumbai",
+      "years": 10,
+      "verified": true,
+      "canHelp": [
+        "Incorporation",
+        "MCA annual filings",
+        "Board process"
+      ],
+      "languages": [
+        "English",
+        "Marathi"
+      ],
+      "forRequirementIds": [
+        "mca"
+      ]
+    },
+    {
+      "id": "faizan-qureshi",
+      "name": "Faizan Qureshi",
+      "type": "licensing_consultant",
+      "specialty": "Shops, factory and municipal licences",
+      "city": "Pune",
+      "years": 7,
+      "verified": true,
+      "canHelp": [
+        "Shops & Establishment",
+        "Factory licence",
+        "Local NOCs"
+      ],
+      "languages": [
+        "English",
+        "Hindi",
+        "Urdu"
+      ],
+      "forRequirementIds": [
+        "shops",
+        "factory"
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "id": "gstin",
+      "term": "GSTIN",
+      "plain": "Your 15-digit GST number — the tax identity of the business.",
+      "aliases": [
+        "gst",
+        "gst number"
+      ]
+    },
+    {
+      "id": "arn",
+      "term": "ARN",
+      "plain": "The receipt number you get after a GST filing goes through.",
+      "aliases": [
+        "acknowledgement",
+        "ack"
+      ]
+    },
+    {
+      "id": "ecr",
+      "term": "ECR",
+      "plain": "The monthly PF contribution sheet you send to EPFO.",
+      "aliases": [
+        "pf return",
+        "epf return"
+      ]
+    },
+    {
+      "id": "posh",
+      "term": "POSH",
+      "plain": "The workplace law that requires a policy and a complaints committee once you have employees.",
+      "aliases": [
+        "sexual harassment",
+        "icc"
+      ]
+    },
+    {
+      "id": "ic",
+      "term": "Internal Committee",
+      "plain": "The group of people employees can go to with a POSH complaint.",
+      "aliases": [
+        "icc",
+        "committee"
+      ]
+    },
+    {
+      "id": "aoc4",
+      "term": "AOC-4",
+      "plain": "The yearly MCA form that files your company accounts.",
+      "aliases": [
+        "accounts",
+        "annual accounts"
+      ]
+    },
+    {
+      "id": "trrn",
+      "term": "TRRN",
+      "plain": "The receipt number EPFO gives you after a PF payment.",
+      "aliases": [
+        "epf receipt"
+      ]
+    },
+    {
+      "id": "gstr3b",
+      "term": "GSTR-3B",
+      "plain": "The monthly (or quarterly) GST summary return.",
+      "aliases": [
+        "3b",
+        "gst return"
+      ]
+    },
+    {
+      "id": "esi",
+      "term": "ESI",
+      "plain": "Employee State Insurance — medical cover funded by a small payroll deduction.",
+      "aliases": [
+        "esic"
+      ]
+    },
+    {
+      "id": "mca",
+      "term": "MCA",
+      "plain": "The ministry that keeps company records. Filings go through MCA21.",
+      "aliases": [
+        "mca21",
+        "roc"
+      ]
+    }
+  ],
+  "portals": [
+    {
+      "id": "gst",
+      "requirementId": "gst",
+      "period": "Aug 2026",
+      "rows": [
+        {
+          "label": "GSTIN",
+          "value": "27AABCA1234A1Z5"
+        },
+        {
+          "label": "Return",
+          "value": "GSTR-3B"
+        },
+        {
+          "label": "Outward taxable supplies",
+          "value": "₹18,40,000"
+        },
+        {
+          "label": "Input tax credit",
+          "value": "₹2,10,000"
+        },
+        {
+          "label": "Tax payable",
+          "value": "₹1,21,200"
+        }
+      ]
+    },
+    {
+      "id": "posh",
+      "requirementId": "posh",
+      "period": "FY 2025–26",
+      "rows": [
+        {
+          "label": "Establishment",
+          "value": "Aarav Engineering Pvt Ltd"
+        },
+        {
+          "label": "District",
+          "value": "Pune"
+        },
+        {
+          "label": "Complaints received",
+          "value": "0"
+        },
+        {
+          "label": "Internal Committee members",
+          "value": "4"
+        },
+        {
+          "label": "Awareness sessions",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "epf",
+      "requirementId": "epf",
+      "period": "Aug 2026",
+      "rows": [
+        {
+          "label": "Establishment code",
+          "value": "PUPUN0025444000"
+        },
+        {
+          "label": "Employees",
+          "value": "14"
+        },
+        {
+          "label": "Wage month",
+          "value": "August 2026"
+        },
+        {
+          "label": "ECR contribution",
+          "value": "₹1,86,420"
+        }
+      ]
+    },
+    {
+      "id": "shops",
+      "requirementId": "shops",
+      "period": "2026 renewal",
+      "rows": [
+        {
+          "label": "Registration",
+          "value": "MH-PUN-SE-2019-4412"
+        },
+        {
+          "label": "Premises",
+          "value": "Pune manufacturing unit"
+        },
+        {
+          "label": "Employees declared",
+          "value": "14"
+        }
+      ]
+    },
+    {
+      "id": "mca",
+      "requirementId": "mca",
+      "period": "FY 2025–26",
+      "rows": [
+        {
+          "label": "CIN",
+          "value": "U29253PN2019PTC184201"
+        },
+        {
+          "label": "Form",
+          "value": "AOC-4 / MGT-7"
+        },
+        {
+          "label": "Financial year",
+          "value": "2025–26"
+        }
+      ]
+    },
+    {
+      "id": "esi",
+      "requirementId": "esi",
+      "period": "Aug 2026",
+      "rows": [
+        {
+          "label": "Employer code",
+          "value": "31001234560000999"
+        },
+        {
+          "label": "Covered employees",
+          "value": "11"
+        },
+        {
+          "label": "Contribution",
+          "value": "₹48,200"
+        }
+      ]
+    },
+    {
+      "id": "factory",
+      "requirementId": "factory",
+      "period": "Licence check 2026",
+      "rows": [
+        {
+          "label": "Occupier",
+          "value": "Aarav Engineering Pvt Ltd"
+        },
+        {
+          "label": "Power",
+          "value": "Installed — manufacturing"
+        },
+        {
+          "label": "Workers",
+          "value": "14"
+        }
+      ]
+    },
+    {
+      "id": "ptax",
+      "requirementId": "ptax",
+      "period": "Aug 2026",
+      "rows": [
+        {
+          "label": "PT registration",
+          "value": "27751234567P"
+        },
+        {
+          "label": "Employees",
+          "value": "14"
+        },
+        {
+          "label": "Tax deducted",
+          "value": "₹2,800"
+        }
+      ]
+    }
+  ],
+  "penalties": [
+    {
+      "id": "posh",
+      "requirementId": "posh",
+      "amountInr": 50000,
+      "label": "Workplace policy gap",
+      "consequence": "Fine and possible cancellation of a business licence if a complaint arrives with no committee in place.",
+      "sourceNote": "POSH Act, 2013 — illustrative band for the demo, not a citation of a live case."
+    },
+    {
+      "id": "gst",
+      "requirementId": "gst",
+      "amountInr": 10000,
+      "label": "Late GSTR-3B",
+      "consequence": "Late fee plus interest on unpaid tax. The return stays blocked until the fee is cleared.",
+      "sourceNote": "CGST Rules — late fee is typically ₹50/day per Act, capped. Demo uses a round number."
+    },
+    {
+      "id": "epf",
+      "requirementId": "epf",
+      "amountInr": 25000,
+      "label": "Delayed PF contribution",
+      "consequence": "Damages on the delayed amount plus possible prosecution for repeated default.",
+      "sourceNote": "EPF & MP Act — damages are percentage-banded. Demo uses a mid-band figure."
+    },
+    {
+      "id": "shops",
+      "requirementId": "shops",
+      "amountInr": 5000,
+      "label": "Expired Shop Act registration",
+      "consequence": "Local inspector can issue a notice; renewal often needs a late fee.",
+      "sourceNote": "Maharashtra Shops and Establishments Act — municipal bands vary."
+    },
+    {
+      "id": "mca",
+      "requirementId": "mca",
+      "amountInr": 100000,
+      "label": "Missed annual MCA filing",
+      "consequence": "Additional fee that grows with delay; directors can be marked as disqualified.",
+      "sourceNote": "Companies Act additional-fee table — demo uses a rounded exposure."
+    },
+    {
+      "id": "esi",
+      "requirementId": "esi",
+      "amountInr": 8000,
+      "label": "ESI contribution slip",
+      "consequence": "Interest and damages on delayed contribution, plus recovery action.",
+      "sourceNote": "ESI Act — demo band."
+    },
+    {
+      "id": "factory",
+      "requirementId": "factory",
+      "amountInr": 200000,
+      "label": "Factory licence lapse",
+      "consequence": "Running a factory without a valid licence can attract a notice to stop work.",
+      "sourceNote": "Factories Act / DISH Maharashtra — demo band."
+    },
+    {
+      "id": "ptax",
+      "requirementId": "ptax",
+      "amountInr": 2000,
+      "label": "Professional tax delay",
+      "consequence": "Interest on unpaid tax and a small penalty per employee.",
+      "sourceNote": "Maharashtra PT — demo band."
+    }
+  ],
+  "sources": [
+    {
+      "id": "posh-act",
+      "title": "Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act, 2013",
+      "publisher": "Ministry of Women and Child Development",
+      "url": "https://wcd.nic.in",
+      "jurisdiction": "India",
+      "lastVerified": "2026-08-29"
+    },
+    {
+      "id": "gst-act",
+      "title": "Central Goods and Services Tax Act, 2017 — return filing framework",
+      "publisher": "CBIC / GSTN",
+      "url": "https://www.gst.gov.in",
+      "jurisdiction": "India",
+      "lastVerified": "2026-08-29"
+    },
+    {
+      "id": "shops-mh",
+      "title": "Maharashtra Shops and Establishments (Regulation of Employment and Conditions of Service) Act, 2017",
+      "publisher": "Government of Maharashtra",
+      "url": "https://mahakamgar.maharashtra.gov.in",
+      "jurisdiction": "Maharashtra",
+      "lastVerified": "2026-08-29"
+    },
+    {
+      "id": "epf",
+      "title": "Employees’ Provident Funds and Miscellaneous Provisions Act, 1952",
+      "publisher": "EPFO",
+      "url": "https://www.epfindia.gov.in",
+      "jurisdiction": "India",
+      "lastVerified": "2026-08-29"
+    },
+    {
+      "id": "esi",
+      "title": "Employees’ State Insurance Act, 1948",
+      "publisher": "ESIC",
+      "url": "https://www.esic.gov.in",
+      "jurisdiction": "India",
+      "lastVerified": "2026-08-29"
+    },
+    {
+      "id": "companies",
+      "title": "Companies Act, 2013 — annual filings",
+      "publisher": "Ministry of Corporate Affairs",
+      "url": "https://www.mca.gov.in",
+      "jurisdiction": "India",
+      "lastVerified": "2026-08-29"
+    },
+    {
+      "id": "factories",
+      "title": "Factories Act, 1948 — licensing and safety",
+      "publisher": "Maharashtra Directorate of Industrial Safety and Health",
+      "url": "https://mahadish.in",
+      "jurisdiction": "Maharashtra",
+      "lastVerified": "2026-08-29"
+    }
+  ],
+  "dashboard": {
+    "readinessTrend": [
+      {
+        "month": "Mar",
+        "value": 71
+      },
+      {
+        "month": "Apr",
+        "value": 74
+      },
+      {
+        "month": "May",
+        "value": 78
+      },
+      {
+        "month": "Jun",
+        "value": 81
+      },
+      {
+        "month": "Jul",
+        "value": 84
+      },
+      {
+        "month": "Aug",
+        "value": 60
+      }
+    ],
+    "filingHistory": [
+      {
+        "month": "Mar",
+        "gst": 1,
+        "epf": 1,
+        "other": 0
+      },
+      {
+        "month": "Apr",
+        "gst": 1,
+        "epf": 1,
+        "other": 1
+      },
+      {
+        "month": "May",
+        "gst": 1,
+        "epf": 1,
+        "other": 0
+      },
+      {
+        "month": "Jun",
+        "gst": 1,
+        "epf": 1,
+        "other": 1
+      },
+      {
+        "month": "Jul",
+        "gst": 1,
+        "epf": 1,
+        "other": 0
+      },
+      {
+        "month": "Aug",
+        "gst": 1,
+        "epf": 1,
+        "other": 2
+      }
+    ],
+    "categoryMix": [
+      {
+        "label": "Tax",
+        "value": 12
+      },
+      {
+        "label": "Employees",
+        "value": 11
+      },
+      {
+        "label": "Licences",
+        "value": 8
+      },
+      {
+        "label": "Corporate",
+        "value": 6
+      },
+      {
+        "label": "Workplace",
+        "value": 5
+      }
+    ]
+  },
+  "health": {
+    "total": 38,
+    "completed": 24,
+    "pendingApproval": 6,
+    "remaining": 8,
+    "readiness": 60
+  },
+  "flags": {
+    "discoveryDone": false,
+    "tourDone": true,
+    "plainLanguage": false
+  }
+}

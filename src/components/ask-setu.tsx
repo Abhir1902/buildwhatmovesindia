@@ -4,18 +4,22 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ComplianceAssistant } from "@/services/compliance-assistant";
 import { useI18n } from "@/i18n/provider";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useSuiteUi } from "@/components/suite/suite-ui";
 
 export function AskSetu() {
   const { t, locale } = useI18n();
   const router = useRouter();
+  const { setPaletteOpen } = useSuiteUi();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
   const suggestions = useMemo(() => {
-    const matches = ComplianceAssistant.matchIntent(query);
-    const list = matches.length ? matches : ComplianceAssistant.suggestions();
+    const matches = ComplianceAssistant.search(query).filter((hit) => hit.group !== "apps").slice(0, 6);
+    const list = matches.length ? matches : ComplianceAssistant.suggestions().map((item) => ({ ...item, group: "actions" as const, score: 1 }));
     const labels: Record<string, { title: string; reason: string }> = {
       posh: { title: t.ask.poshTitle, reason: t.ask.poshReason },
       gst: { title: t.ask.gstTitle, reason: t.ask.gstReason },
@@ -46,18 +50,13 @@ export function AskSetu() {
   return (
     <section className="relative" aria-label="Ask Setu">
       {open && (
-        <button
-          type="button"
-          className="fixed inset-0 z-20 cursor-default bg-transparent"
-          aria-label={t.ask.closeList}
-          onPointerDown={close}
-        />
+        <button type="button" className="fixed inset-0 z-20 cursor-default bg-transparent" aria-label={t.ask.closeList} onPointerDown={close} />
       )}
       <div className="relative z-30">
         <label htmlFor="ask-setu" className="sr-only">
           {t.overview.askPlaceholder}
         </label>
-        <input
+        <Input
           id="ask-setu"
           value={query}
           onChange={(e) => {
@@ -68,14 +67,18 @@ export function AskSetu() {
           onKeyDown={(e) => {
             if (e.key === "Enter" && suggestions[0]) go(suggestions[0].href);
             if (e.key === "Escape") close();
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+              e.preventDefault();
+              setPaletteOpen(true);
+            }
           }}
           placeholder={t.overview.askPlaceholder}
-          className="h-14 w-full rounded-lg border border-neutral-200 bg-white px-4 text-base outline-none transition-shadow duration-150 placeholder:text-neutral-400 focus:border-neutral-400 focus:shadow-[0_0_0_4px_rgba(20,20,19,0.06)]"
+          className="h-12 bg-white text-base"
           autoComplete="off"
         />
         {loading && <p className="mt-3 font-mono text-xs text-neutral-500">{t.overview.understanding}</p>}
         {open && (
-          <ul className="absolute z-30 mt-2 w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+          <ul className="absolute z-30 mt-2 w-full overflow-hidden rounded-lg border border-neutral-200 bg-white shadow-[var(--elev-8)]">
             {suggestions.map((item) => (
               <li key={item.id}>
                 <button
@@ -104,9 +107,10 @@ export function AskSetu() {
                 setQuery(chip);
                 setOpen(true);
               }}
-              className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs text-neutral-600 hover:border-neutral-400"
             >
-              {chip}
+              <Badge variant="outline" className="cursor-pointer font-normal">
+                {chip}
+              </Badge>
             </button>
           ))}
         </div>

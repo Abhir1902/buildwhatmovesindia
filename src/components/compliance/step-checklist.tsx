@@ -63,7 +63,7 @@ function JourneyTick({
   const copy = stepCopy(t, step.id);
   const title = copy?.title ?? step.title;
   const waitingHere = Boolean(pending && (stuckStepId ? step.id === stuckStepId : step.status === "current"));
-  const tip = waitingHere
+  const tip = waitingHere && pending
     ? pending.detail
     : [copy?.summary ?? step.summary, copy?.action ?? step.action].filter(Boolean).join(" ") || title;
   const [open, setOpen] = useState(expandable && step.status === "current");

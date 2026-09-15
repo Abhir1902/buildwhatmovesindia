@@ -15,6 +15,7 @@ import {
 } from "next/font/google";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import { Analytics } from "@vercel/analytics/next";
 import { LanguageProvider } from "@/i18n/provider";
 import { dictionaries, type LocaleCode } from "@/i18n/dictionaries";
 import { DemoProvider } from "@/state/demo-provider";
@@ -149,6 +150,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </DemoProvider>
           </AuthProvider>
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
